@@ -1,170 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhilash K K | Portfolio & Resume</title>
     <meta name="description" content="Professional portfolio and resume of Abhilash K K, a Master of Computer Application student and deep learning enthusiast.">
-    <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="hero">
+    <header id="header">
         <div class="container">
             <nav>
-                <div class="logo">AKK</div>
+                <a href="#" class="logo">ABHILASH<span>.</span></a>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#projects">Projects</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
                 </ul>
             </nav>
-            <div class="hero-content">
-                <h1 id="name">ABHILASH K K</h1>
-                <p class="subtitle">Deep Learning Enthusiast | MCA Student</p>
-                <div class="contact-info">
-                    <span><i class="fas fa-location-dot"></i> Wayanad, Kerala</span>
-                    <span><i class="fas fa-phone"></i> +91 8590979422</span>
-                    <span><i class="fas fa-envelope"></i> <a href="mailto:Kkabhilash30@gmail.com">Kkabhilash30@gmail.com</a></span>
-                    <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/abhilash-k-k-" target="_blank">LinkedIn</a></span>
-                </div>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn primary">View Projects</a>
-                    <a href="mailto:Kkabhilash30@gmail.com" class="btn secondary">Get In Touch</a>
-                </div>
-            </div>
         </div>
     </header>
 
     <main>
-        <section id="about" class="section container">
-            <h2 class="section-title">Career Objective</h2>
-            <div class="card about-card">
-                <p>Enthusiastic and self-driven graduate looking to begin my professional journey in a growth-oriented organization that values innovation and dedication. I aspire to utilize my educational background and analytical abilities to support organizational objectives while gaining hands-on industry experience. Adaptable and quick to learn, I am prepared to embrace new challenges, collaborate effectively with teams, and contribute meaningfully to projects. My goal is to continuously enhance my skills, uphold professional ethics, and grow into a responsible and valuable member of the organization.</p>
-            </div>
-        </section>
-
-        <section id="education" class="section container">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="date">2025 - 2027</span>
-                        <h3>Master of Computer Application (MCA)</h3>
-                        <p class="institution">Amal Jyothi College of Engineering</p>
-                        <p class="university">APJ Abdul Kalam Technological University, Kerala</p>
-                        <p class="status">Currently Pursuing</p>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h2 data-reveal>Welcome to my world</h2>
+                        <h1 data-reveal>I'm <span class="text-gradient">Abhilash K K</span></h1>
+                        <div class="typing-text" id="typing-text" data-reveal></div>
+                        <div class="hero-btns" data-reveal>
+                            <a href="#projects" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+                            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="date">2022 - 2025</span>
-                        <h3>Bachelor of Computer Application (BCA)</h3>
-                        <p class="institution">Maharaja Institute of Technology Mysore</p>
-                        <p class="university">Mysore University, Karnataka</p>
-                        <p class="grade">Cumulative GPA: <strong>8.6/10</strong></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-grid">
-                <div class="card project-card highlight">
-                    <div class="project-info">
-                        <h3>Traffic Sign Recognition & Detection (TSRD)</h3>
-                        <p class="project-meta">Deep Learning Approach | YOLOv8</p>
-                        <p>Developed an intelligent system using deep learning techniques for real-time traffic sign detection and recognition. Aimed to enhance road safety through voice alerts and a user-friendly GUI interface.</p>
-                        <ul class="project-highlights">
-                            <li>Implemented <strong>YOLOv5 & YOLOv8</strong> models for high-accuracy detection.</li>
-                            <li>Used <strong>ResNet, EfficientNet, ConvNeXt, and VGGNet</strong> for classification.</li>
-                            <li>Integrated a <strong>Voice Alert System</strong> and <strong>GUI interface</strong> for drivers.</li>
-                            <li>Trained on Kaggle Traffic Sign and CCTSDB datasets.</li>
-                        </ul>
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>Deep Learning</span>
-                            <span>YOLO</span>
-                            <span>Computer Vision</span>
+                    <div class="hero-image" data-reveal>
+                        <div class="profile-container">
+                            <img src="assets/profile.png" alt="Abhilash K K">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="internship" class="section container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="card exp-card">
-                <div class="exp-header">
-                    <div class="exp-title">
-                        <h3>Internship Trainee</h3>
-                        <p>Geek Wick TechMedia Services Pvt Ltd</p>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <span class="section-subtitle">Discovery</span>
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text" data-reveal>
+                        <p>Enthusiastic and self-driven graduate looking to begin my professional journey in a growth-oriented organization that values innovation and dedication. I aspire to utilize my educational background and analytical abilities to support organizational objectives while gaining hands-on industry experience.</p>
+                        <p style="margin-top: 1rem;">Adaptable and quick to learn, I am prepared to embrace new challenges, collaborate effectively with teams, and contribute meaningfully to projects. My goal is to continuously enhance my skills, uphold professional ethics, and grow into a responsible and valuable member of the organization.</p>
+                        
+                        <div class="about-info-list">
+                            <div class="info-item">
+                                <span>Location</span>
+                                <span>Wayanad, Kerala</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Email</span>
+                                <span>Kkabhilash30@gmail.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Phone</span>
+                                <span>+91 8590979422</span>
+                            </div>
+                            <div class="info-item">
+                                <span>Degree</span>
+                                <span>MCA (Pursuing)</span>
+                            </div>
+                        </div>
                     </div>
-                    <span class="exp-type">Internship Certificate Received</span>
+                    <div class="education-timeline" data-reveal>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2025 - 2027</span>
+                                    <h3>Master of Computer Application (MCA)</h3>
+                                    <p>Amal Jyothi College of Engineering</p>
+                                    <p class="text-light">APJ Abdul Kalam Technological University</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date">2022 - 2025</span>
+                                    <h3>Bachelor of Computer Application (BCA)</h3>
+                                    <p>Maharaja Institute of Technology Mysore</p>
+                                    <p class="text-light">Mysore University | GPA: 8.6/10</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="section container">
-            <h2 class="section-title">Skills & Expertise</h2>
-            <div class="skills-container">
-                <div class="skill-group">
-                    <h3><i class="fas fa-code"></i> Technical</h3>
-                    <div class="skill-list">
-                        <span>Python</span>
-                        <span>SQL</span>
-                        <span>C Programming</span>
-                        <span>HTML</span>
-                    </div>
+        <!-- Skills Section -->
+        <section id="skills" class="section glass" style="border-radius: 0;">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <span class="section-subtitle">Expertise</span>
+                    <h2 class="section-title">My Skills</h2>
                 </div>
-                <div class="skill-group">
-                    <h3><i class="fas fa-users"></i> Behavioral</h3>
-                    <div class="skill-list">
-                        <span>Data-Driven Decision Making</span>
-                        <span>Cross-functional Leadership</span>
-                        <span>Communication</span>
+                <div class="skills-grid">
+                    <div class="skill-card glass" data-reveal>
+                        <div class="skill-icon"><i class="fab fa-python"></i></div>
+                        <h3>Python</h3>
+                        <div class="skill-progress">
+                            <div class="progress-bar" data-progress="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass" data-reveal>
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <h3>SQL</h3>
+                        <div class="skill-progress">
+                            <div class="progress-bar" data-progress="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass" data-reveal>
+                        <div class="skill-icon"><i class="fas fa-code"></i></div>
+                        <h3>C Programming</h3>
+                        <div class="skill-progress">
+                            <div class="progress-bar" data-progress="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card glass" data-reveal>
+                        <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                        <h3>Web Tech (HTML/CSS)</h3>
+                        <div class="skill-progress">
+                            <div class="progress-bar" data-progress="85"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="certificates" class="section container">
-            <h2 class="section-title">Courses & Certifications</h2>
-            <div class="cert-grid">
-                <div class="card cert-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>Smart India Hackathon 2025</h3>
-                    <p>Certificate of Appreciation</p>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <span class="section-subtitle">Portfolio</span>
+                    <h2 class="section-title">Featured Projects</h2>
                 </div>
-                <div class="card cert-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Nasa Space Apps</h3>
-                    <p>Participation Certificate</p>
+                <div class="projects-grid">
+                    <div class="project-card" data-reveal>
+                        <div class="project-img">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-tags">
+                                <span>Python</span>
+                                <span>YOLOv8</span>
+                                <span>Deep Learning</span>
+                            </div>
+                            <h3>Traffic Sign Recognition</h3>
+                            <p>Intelligent system for real-time traffic sign detection and recognition using YOLOv8 and ResNet.</p>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i> Source</a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More projects can be added here -->
                 </div>
-                <div class="card cert-card">
-                    <i class="fas fa-certificate"></i>
-                    <h3>I2U</h3>
-                    <p>Certificate of Appreciation</p>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume" class="section glass" style="border-radius: 0; background: var(--primary);">
+            <div class="container" style="text-align: center; color: white;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Ready to collaborate?</h2>
+                <p style="margin-bottom: 2.5rem; opacity: 0.9;">Download my resume to see my full professional background.</p>
+                <a href="#" class="btn btn-secondary" style="background: white; color: var(--primary); border: none;">
+                    Download Resume <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <span class="section-subtitle">Get in touch</span>
+                    <h2 class="section-title">Contact Me</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info-cards" data-reveal>
+                        <div class="contact-card glass">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>Kkabhilash30@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-card glass">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 8590979422</p>
+                            </div>
+                        </div>
+                        <div class="contact-card glass">
+                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>abhilash-k-k-</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form glass" data-reveal>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="container">
-        <p>&copy; 2026 ABHILASH K K. Designed with passion for innovation.</p>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/abhilash-k-k-" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:Kkabhilash30@gmail.com"><i class="fas fa-envelope"></i></a>
+    <footer>
+        <div class="container">
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/abhilash-k-k-" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:Kkabhilash30@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2026 ABHILASH K K. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
