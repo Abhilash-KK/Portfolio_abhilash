@@ -3,134 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhilash K K | Software Engineer</title>
-    <meta name="description" content="Portfolio of Abhilash K K, a Software Engineer and Deep Learning Enthusiast.">
+    <title>Abhilash K K | Portfolio & Resume</title>
+    <meta name="description" content="Professional portfolio and resume of Abhilash K K, a Master of Computer Application student and deep learning enthusiast.">
+    <link rel="stylesheet" href="style.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="halo-bg">
-        <div class="halo halo-1"></div>
-        <div class="halo halo-2"></div>
-    </div>
-
-    <header>
+    <header class="hero">
         <div class="container">
             <nav>
-                <div class="logo">ABHILASH.</div>
+                <div class="logo">AKK</div>
                 <ul class="nav-links">
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#tech-stack">Skills</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
                 </ul>
-                <a href="#contact" class="btn-contact">Contact Me</a>
             </nav>
+            <div class="hero-content">
+                <h1 id="name">ABHILASH K K</h1>
+                <p class="subtitle">Deep Learning Enthusiast | MCA Student</p>
+                <div class="contact-info">
+                    <span style="width: 100%;"><i class="fas fa-location-dot"></i> Kandothpoyil(H), Narikkundu(PO), Ambalavayal, Wayanad, Kerala</span>
+                    <span><i class="fas fa-phone"></i> +91 8590979422</span>
+                    <span><i class="fas fa-envelope"></i> <a href="mailto:Kkabhilash30@gmail.com">Kkabhilash30@gmail.com</a></span>
+                    <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/abhilash-k-k-" target="_blank">LinkedIn</a></span>
+                </div>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn primary">View Projects</a>
+                    <a href="mailto:Kkabhilash30@gmail.com" class="btn secondary">Get In Touch</a>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero" class="container">
-            <div class="avatar-wrapper">
-                <img src="assets/avatar.png" alt="Abhilash K K">
+        <section id="about" class="section container">
+            <h2 class="section-title">Career Objective</h2>
+            <div class="card about-card">
+                <p>Enthusiastic and self-driven graduate looking to begin my professional journey in a growth-oriented organization that values innovation and dedication. I aspire to utilize my educational background and analytical abilities to support organizational objectives while gaining hands-on industry experience. Adaptable and quick to learn, I am prepared to embrace new challenges, collaborate effectively with teams, and contribute meaningfully to projects. My goal is to continuously enhance my skills, uphold professional ethics, and grow into a responsible and valuable member of the organization.</p>
             </div>
-            <p class="greeting">Hello! I Am <span style="color: white; font-weight: 600;">Abhilash K K</span></p>
-            <h1 class="headline">
-                Judges a book by its <span class="circled">cover</span>...
-            </h1>
-            <p class="intro-subtext">
-                I'm a Software Engineer who creates meaningful and delightful digital products.
-            </p>
         </section>
 
-        <!-- Work Experience -->
-        <section id="work" class="container" style="padding: 8rem 0;">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="exp-grid">
-                <div class="exp-card">
-                    <div class="exp-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Deep Learning</h3>
-                    <p>Building intelligent systems using YOLOv8 and advanced computer vision techniques.</p>
+        <section id="education" class="section container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">2025 - 2027</span>
+                        <h3>Master of Computer Application (MCA)</h3>
+                        <p class="institution">Amal Jyothi College of Engineering,</p>
+                        <p class="university">APJ Abdul Kalam Technological University, Kottayam, Kerala</p>
+                        <p class="status">Currently Pursuing</p>
+                    </div>
                 </div>
-                <div class="exp-card">
-                    <div class="exp-icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Full Stack Dev</h3>
-                    <p>Crafting responsive and high-performance web applications with modern tech stacks.</p>
-                </div>
-                <div class="exp-card">
-                    <div class="exp-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>UI/UX Design</h3>
-                    <p>Designing intuitive user interfaces that bridge the gap between users and technology.</p>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="date">2022 - 2025</span>
+                        <h3>Bachelor of Computer Application (BCA)</h3>
+                        <p class="institution">Maharaja Institute of Technology Mysore,</p>
+                        <p class="university">Mysore University, Mysore, Karnataka</p>
+                        <p class="grade">Cumulative GPA: <strong>8.6/10</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Tech Stack Tree -->
-        <section id="tech-stack" class="container">
-            <h2 class="section-title">My Tech Stack</h2>
-            <div class="tech-viz">
-                <div class="central-hub">
-                    <i class="fas fa-code"></i>
-                </div>
-                <!-- Positioning these nodes via JS or hardcoding for simplicity -->
-                <div class="tech-node" style="top: 10%; left: 30%;"><i class="fab fa-python" title="Python"></i></div>
-                <div class="tech-node" style="top: 20%; right: 25%;"><i class="fab fa-react" title="React"></i></div>
-                <div class="tech-node" style="bottom: 15%; left: 25%;"><i class="fab fa-js-square" title="JavaScript"></i></div>
-                <div class="tech-node" style="bottom: 10%; right: 30%;"><i class="fas fa-database" title="SQL"></i></div>
-                <div class="tech-node" style="top: 40%; left: 10%;"><i class="fab fa-figma" title="Figma"></i></div>
-                <div class="tech-node" style="bottom: 40%; right: 10%;"><i class="fab fa-node-js" title="Node.js"></i></div>
-            </div>
-        </section>
-
-        <!-- Featured Projects -->
-        <section id="projects" class="container" style="padding: 8rem 0;">
+        <section id="projects" class="section container">
             <h2 class="section-title">Featured Projects</h2>
-            <div class="project-list">
-                <div class="featured-project">
-                    <div class="project-img-wrapper">
-                        <i class="fas fa-car-side"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Traffic Sign Recognition</h3>
-                        <p>A real-time detection and classification system for road safety using YOLOv8 and ResNet.</p>
-                        <a href="#" class="btn-pill">View Project</a>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="featured-project">
-                    <div class="project-img-wrapper">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Smart Security System</h3>
-                        <p>Intelligent surveillance platform with facial recognition and real-time alert notifications.</p>
-                        <a href="#" class="btn-pill">View Project</a>
+            <div class="project-grid">
+                <div class="card project-card highlight">
+                    <div class="project-info">
+                        <h3>Traffic Sign Recognition & Detection (TSRD)</h3>
+                        <p class="project-meta">Deep Learning Approach | YOLOv8</p>
+                        <p style="margin-bottom: 1rem;">Developed an intelligent system using deep learning techniques for real-time traffic sign detection and recognition, aimed to enhance road safety by assisting drivers and supporting future autonomous driving systems.</p>
+                        <ul class="project-highlights">
+                            <li>Implemented <strong>YOLOv5 and YOLOv8</strong> models for real-time traffic sign detection.</li>
+                            <li>Used pre-trained classification models such as <strong>ResNet, EfficientNet, ConvNeXt, and VGGNet</strong> for traffic sign recognition.</li>
+                            <li>Trained and tested the system on multiple datasets including <strong>Kaggle Traffic Sign Dataset and CCTSDB dataset</strong>.</li>
+                            <li>Performed dataset preprocessing and split data into training, validation, and testing sets.</li>
+                            <li>Evaluated model performance using metrics like <strong>accuracy, precision, recall, mAP, train loss, and validation loss</strong>.</li>
+                            <li>Designed a <strong>GUI interface</strong> to upload images and display detection and recognition results.</li>
+                            <li>Integrated a <strong>voice alert system</strong> to inform drivers about detected traffic signs.</li>
+                            <li>Achieved high detection accuracy, with <strong>YOLOv8x</strong> showing better performance among tested models.</li>
+                        </ul>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Deep Learning</span>
+                            <span>YOLOv8</span>
+                            <span>Computer Vision</span>
+                            <span>ResNet</span>
+                            <span>GUI Development</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="container">
-            <h2 class="contact-headline">Tell me about your next project</h2>
-            <div style="display: flex; gap: 2rem; justify-content: center;">
-                <a href="mailto:Kkabhilash30@gmail.com" class="btn-contact" style="background: var(--primary); color: white;">Email Me</a>
-                <a href="#" class="btn-pill">WhatsApp</a>
+        <section id="internship" class="section container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="card exp-card">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Internship Trainee</h3>
+                        <p>Geek Wick TechMedia Services Pvt Ltd</p>
+                    </div>
+                    <span class="exp-type">Certificate of Internship Received</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-group">
+                    <h3><i class="fas fa-code"></i> Technical</h3>
+                    <div class="skill-list">
+                        <span>Python</span>
+                        <span>SQL</span>
+                        <span>C Programming</span>
+                        <span>HTML</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3><i class="fas fa-users"></i> Behavioral</h3>
+                    <div class="skill-list">
+                        <span>Data-Driven Decision Making</span>
+                        <span>Cross-functional Leadership</span>
+                        <span>Communication</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates" class="section container">
+            <h2 class="section-title">Courses & Certifications</h2>
+            <div class="cert-grid">
+                <div class="card cert-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Smart India Hackathon 2025</h3>
+                    <p>Certificate of Appreciation</p>
+                </div>
+                <div class="card cert-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Nasa Space Apps</h3>
+                    <p>Participation Certificate</p>
+                </div>
+                <div class="card cert-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>I2U</h3>
+                    <p>Certificate of Appreciation</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="container">
-        <p>&copy; 2026 Abhilash K K</p>
-        <div class="socials" style="display: flex; gap: 2rem;">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
+        <p>&copy; 2026 ABHILASH K K. Designed with passion for innovation.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/abhilash-k-k-" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:Kkabhilash30@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </footer>
 

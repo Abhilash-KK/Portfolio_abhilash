@@ -1,51 +1,54 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Parallax effect for Background Halos
-    window.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-
-        const halo1 = document.querySelector('.halo-1');
-        const halo2 = document.querySelector('.halo-2');
-
-        if (halo1) halo1.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
-        if (halo2) halo2.style.transform = `translate(${-x * 50}px, ${-y * 50}px)`;
-    });
-
-    // Tech Stack Nodes Animation
-    const techNodes = document.querySelectorAll('.tech-node');
-    techNodes.forEach((node, index) => {
-        // Subtle floating animation with different delays
-        node.style.animation = `float ${3 + index}s infinite alternate ease-in-out`;
-    });
-
-    // Intersection Observer for Reveal
-    const revealElements = document.querySelectorAll('.exp-card, .featured-project, .tech-node');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+    // Reveal animation on scroll
+    const revealElements = document.querySelectorAll('.card, .timeline-item, .skill-group, .hero-content');
+    
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 150;
+        
+        revealElements.forEach(element => {
+            const revealTop = element.getBoundingClientRect().top;
+            
+            if (revealTop < windowHeight - revealPoint) {
+                element.classList.add('active');
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+                element.style.transition = '1s all ease';
             }
         });
-    }, { threshold: 0.1 });
+    };
 
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(el);
+    // Set initial styles for reveal
+    revealElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = '1s all ease';
     });
 
-    // Smooth Scroll (Native)
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Trigger once on load
+
+    // Smooth scroll for nav links (Extra precaution)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
+                window.scrollTo({
+                    top: target.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
+    });
+
+    // Add a simple hover effect for the logo
+    const logo = document.querySelector('.logo');
+    logo.addEventListener('mouseover', () => {
+        logo.style.letterSpacing = '5px';
+        logo.style.transition = '0.5s all ease';
+    });
+    logo.addEventListener('mouseout', () => {
+        logo.style.letterSpacing = '2px';
     });
 });
