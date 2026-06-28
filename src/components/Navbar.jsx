@@ -90,6 +90,15 @@ export default function Navbar() {
         >
           <i className="fab fa-instagram"></i>
         </a>
+        <a
+          href="https://wa.me/918590979422"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors"
+          aria-label="WhatsApp"
+        >
+          <i className="fab fa-whatsapp"></i>
+        </a>
       </div>
 
       {/* Mobile Hamburger Button */}
@@ -129,6 +138,9 @@ export default function Navbar() {
             </a>
             <a href="https://www.instagram.com/_.abhi_lash.__?igsh=MTJtd2kyYjVjMzJpNA==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
               <i className="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/918590979422" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <i className="fab fa-whatsapp"></i>
             </a>
           </div>
         </div>

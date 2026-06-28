@@ -157,6 +157,10 @@ export default function ContactForm() {
             <a href="tel:+918590979422">+91 8590979422</a>
           </span>
           <span className="flex items-center gap-2 hover:text-primary transition-colors duration-200">
+            <i className="fab fa-whatsapp text-primary text-base"></i> 
+            <a href="https://wa.me/918590979422" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a>
+          </span>
+          <span className="flex items-center gap-2 hover:text-primary transition-colors duration-200">
             <i className="fas fa-location-dot text-primary text-base"></i> 
             <span>Narikkundu(PO), Ambalavayal, Wayanad, Kerala</span>
           </span>

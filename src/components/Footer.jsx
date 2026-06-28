@@ -34,6 +34,15 @@ export default function Footer() {
         >
           <i className="fab fa-instagram"></i>
         </a>
+        <a
+          href="https://wa.me/918590979422"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xl text-slate-500 hover:text-primary hover:-translate-y-1 transition-all duration-300"
+          aria-label="WhatsApp"
+        >
+          <i className="fab fa-whatsapp"></i>
+        </a>
       </div>
     </footer>
   );
