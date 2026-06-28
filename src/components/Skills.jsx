@@ -2,7 +2,12 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 
 export default function Skills() {
-  const technicalSkills = ['Python', 'HTML & CSS', 'SQL', 'C Programming'];
+  const technicalSkills = [
+    { name: 'Python', level: 90 },
+    { name: 'HTML & CSS', level: 85 },
+    { name: 'SQL', level: 80 },
+    { name: 'C Programming', level: 75 }
+  ];
   const softSkills = [
     'Problem Solving',
     'Fast Learning',
@@ -28,14 +33,21 @@ export default function Skills() {
           <h3 className="font-display text-lg font-bold text-white mb-6 flex items-center gap-3 uppercase tracking-wider">
             <i className="fas fa-code text-primary shadow-[0_0_10px_rgba(168,85,247,0.3)]"></i> Technical
           </h3>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col gap-5">
             {technicalSkills.map((skill) => (
-              <span
-                key={skill}
-                className="bg-[#12121a] text-slate-300 border border-border-dark px-4 py-2.5 rounded-lg text-sm font-semibold hover:text-primary hover:border-primary/50 hover:bg-[#1a1a26] transition-all duration-200"
-              >
-                {skill}
-              </span>
+              <div key={skill.name} className="w-full">
+                <div className="flex justify-between items-center mb-1.5">
+                  <span className="text-sm font-semibold text-slate-300 font-sans">{skill.name}</span>
+                  <span className="text-xs font-bold text-primary font-display">{skill.level}%</span>
+                </div>
+                {/* Progress bar container */}
+                <div className="w-full h-2 bg-[#12121a] border border-border-dark rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-primary to-cyan-400 rounded-full transition-all duration-1000 ease-out shadow-[0_0_10px_rgba(168,85,247,0.5)]"
+                    style={{ width: `${skill.level}%` }}
+                  ></div>
+                </div>
+              </div>
             ))}
           </div>
         </ScrollReveal>

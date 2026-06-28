@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
+import TerminalWidget from './TerminalWidget';
 
 export default function About() {
   const pillars = [
@@ -24,6 +25,11 @@ export default function About() {
         <p className="font-sans text-slate-300 text-base md:text-lg leading-[1.8] max-w-[800px] mb-12">
           Welcome to my developer portfolio. I am an enthusiastic and self-driven graduate looking to begin my professional journey in a growth-oriented organization that values innovation and dedication. I aspire to utilize my educational background and analytical abilities to support organizational objectives while gaining hands-on industry experience. Adaptable and quick to learn, I am prepared to embrace new challenges, collaborate effectively with teams, and contribute meaningfully to deep learning projects.
         </p>
+
+        {/* Interactive Hacker Terminal console box */}
+        <div className="w-full flex justify-center mb-12">
+          <TerminalWidget />
+        </div>
 
         {/* Expertise Pillars List */}
         <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 font-display text-[0.8rem] font-bold tracking-[0.2em] text-white">

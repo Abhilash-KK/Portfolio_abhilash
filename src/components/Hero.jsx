@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ScrollReveal from './ScrollReveal';
 
 export default function Hero() {
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(0);
+  const [isDone, setIsDone] = useState(false);
+
   const handleScrollToContact = (e) => {
     e.preventDefault();
     const target = document.querySelector('#contact');
@@ -12,6 +16,35 @@ export default function Hero() {
         behavior: 'smooth'
       });
     }
+  };
+
+  const handleDownloadResume = () => {
+    setIsDownloading(true);
+    setDownloadProgress(0);
+    setIsDone(false);
+
+    const interval = setInterval(() => {
+      setDownloadProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setIsDownloading(false);
+          setIsDone(true);
+          
+          // Trigger file download (expects resume.pdf in public folder)
+          const link = document.createElement('a');
+          link.href = `${import.meta.env.BASE_URL}resume.pdf`;
+          link.download = 'Abhilash_KK_Resume.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          // Reset status after 3 seconds
+          setTimeout(() => setIsDone(false), 3000);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 150);
   };
 
   return (
@@ -33,13 +66,41 @@ export default function Hero() {
           <p className="font-sans text-slate-400 text-base md:text-lg mb-8 max-w-[480px]">
             Building intelligent computer vision systems, training complex neural network models, and coding robust software solutions.
           </p>
-          <a
-            href="#contact"
-            onClick={handleScrollToContact}
-            className="font-display text-[0.8rem] font-bold tracking-widest bg-primary hover:bg-primary-hover text-white px-8 py-4 uppercase transition-all duration-300 shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] hover:-translate-y-0.5"
-          >
-            LET'S TALK
-          </a>
+          
+          {/* Action buttons row */}
+          <div className="flex flex-wrap gap-4 items-center w-full">
+            <a
+              href="#contact"
+              onClick={handleScrollToContact}
+              className="font-display text-[0.8rem] font-bold tracking-widest bg-primary hover:bg-primary-hover text-white px-8 py-4 uppercase transition-all duration-300 shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:shadow-[0_0_35px_rgba(168,85,247,0.6)] hover:-translate-y-0.5"
+            >
+              LET'S TALK
+            </a>
+            
+            {/* Download Resume with Progress */}
+            <button
+              onClick={handleDownloadResume}
+              disabled={isDownloading}
+              className="font-display text-[0.8rem] font-bold tracking-widest border border-white/20 hover:border-primary/50 text-white bg-transparent hover:bg-white/5 px-8 py-4 uppercase transition-all duration-300 hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer disabled:opacity-80"
+            >
+              {isDownloading ? (
+                <>
+                  <div className="w-3.5 h-3.5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                  <span>DOWNLOADING {downloadProgress}%</span>
+                </>
+              ) : isDone ? (
+                <>
+                  <i className="fas fa-check text-green-400"></i>
+                  <span>RESUME DOWNLOADED</span>
+                </>
+              ) : (
+                <>
+                  <i className="fas fa-download text-xs text-slate-400"></i>
+                  <span>DOWNLOAD RESUME</span>
+                </>
+              )}
+            </button>
+          </div>
         </ScrollReveal>
 
         {/* Right graphic visual */}
@@ -54,16 +115,6 @@ export default function Hero() {
               alt="Futuristic Neural Network"
               className="relative w-full h-full object-cover rounded-full border border-white/10 z-10 shadow-[0_0_50px_rgba(168,85,247,0.25)]"
             />
-
-            {/* Floating Bubble 1: Python */}
-            <div className="absolute top-4 left-6 w-14 h-14 bg-[#0d0d12] border border-border-dark rounded-2xl flex items-center justify-center text-2xl text-[#f59e0b] shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:scale-110 transition-transform duration-300 z-20 animate-bounce" style={{ animationDuration: '3.5s' }}>
-              <i className="fab fa-python"></i>
-            </div>
-
-            {/* Floating Bubble 2: PyTorch/Neural Nets */}
-            <div className="absolute bottom-8 right-6 w-14 h-14 bg-[#0d0d12] border border-border-dark rounded-2xl flex items-center justify-center text-2xl text-[#c084fc] shadow-[0_0_20px_rgba(168,85,247,0.25)] hover:scale-110 transition-transform duration-300 z-20 animate-bounce" style={{ animationDuration: '4.5s' }}>
-              <i className="fas fa-brain"></i>
-            </div>
           </div>
         </ScrollReveal>
       </div>

@@ -9,12 +9,16 @@ import Skills from './components/Skills';
 import Certificates from './components/Certificates';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import InteractiveCanvas from './components/InteractiveCanvas';
 
 export default function App() {
   return (
     <div className="bg-bg-dark text-white min-h-screen relative antialiased selection:bg-primary selection:text-white">
+      {/* Dynamic interactive neural net canvas background */}
+      <InteractiveCanvas />
+
       {/* Decorative background grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] pointer-events-none z-0"></div>
       
       {/* Navbar - Fixed glass header */}
       <Navbar />
