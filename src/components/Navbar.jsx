@@ -62,10 +62,9 @@ export default function Navbar() {
         ))}
       </ul>
 
-      {/* Right Social Icons */}
       <div className="hidden md:flex items-center gap-5 text-sm text-slate-300">
         <a
-          href="https://github.com" // Standard fallback/default developer social
+          href="https://github.com/Abhilash-KK"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition-colors"
@@ -83,11 +82,13 @@ export default function Navbar() {
           <i className="fab fa-linkedin"></i>
         </a>
         <a
-          href="mailto:kkabhilash30@gmail.com"
+          href="https://www.instagram.com/_.abhi_lash.__?igsh=MTJtd2kyYjVjMzJpNA=="
+          target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-primary transition-colors"
-          aria-label="Email"
+          aria-label="Instagram"
         >
-          <i className="fas fa-envelope"></i>
+          <i className="fab fa-instagram"></i>
         </a>
       </div>
 
@@ -120,14 +121,14 @@ export default function Navbar() {
             </a>
           ))}
           <div className="flex gap-6 text-lg border-t border-border-dark pt-6 text-slate-300">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <a href="https://github.com/Abhilash-KK" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
               <i className="fab fa-github"></i>
             </a>
             <a href="https://www.linkedin.com/in/abhilash-k-k-" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="mailto:kkabhilash30@gmail.com" className="hover:text-primary transition-colors">
-              <i className="fas fa-envelope"></i>
+            <a href="https://www.instagram.com/_.abhi_lash.__?igsh=MTJtd2kyYjVjMzJpNA==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <i className="fab fa-instagram"></i>
             </a>
           </div>
         </div>

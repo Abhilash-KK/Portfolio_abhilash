@@ -8,7 +8,7 @@ export default function Footer() {
       </p>
       <div className="flex gap-6">
         <a
-          href="https://github.com"
+          href="https://github.com/Abhilash-KK"
           target="_blank"
           rel="noopener noreferrer"
           className="text-xl text-slate-500 hover:text-primary hover:-translate-y-1 transition-all duration-300"
@@ -26,11 +26,13 @@ export default function Footer() {
           <i className="fab fa-linkedin"></i>
         </a>
         <a
-          href="mailto:kkabhilash30@gmail.com"
+          href="https://www.instagram.com/_.abhi_lash.__?igsh=MTJtd2kyYjVjMzJpNA=="
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-xl text-slate-500 hover:text-primary hover:-translate-y-1 transition-all duration-300"
-          aria-label="Email"
+          aria-label="Instagram"
         >
-          <i className="fas fa-envelope"></i>
+          <i className="fab fa-instagram"></i>
         </a>
       </div>
     </footer>
