@@ -73,7 +73,7 @@ export default function Navbar() {
           <i className="fab fa-github"></i>
         </a>
         <a
-          href="https://www.linkedin.com/in/abhilash-k-k-"
+          href="https://www.linkedin.com/in/abhilash-k-k-47ba2438a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition-colors"
@@ -124,7 +124,7 @@ export default function Navbar() {
             <a href="https://github.com/Abhilash-KK" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
               <i className="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/abhilash-k-k-" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <a href="https://www.linkedin.com/in/abhilash-k-k-47ba2438a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
               <i className="fab fa-linkedin"></i>
             </a>
             <a href="https://www.instagram.com/_.abhi_lash.__?igsh=MTJtd2kyYjVjMzJpNA==" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">

@@ -17,7 +17,7 @@ export default function Footer() {
           <i className="fab fa-github"></i>
         </a>
         <a
-          href="https://www.linkedin.com/in/abhilash-k-k-"
+          href="https://www.linkedin.com/in/abhilash-k-k-47ba2438a?utm_source=share_via&utm_content=profile&utm_medium=member_android"
           target="_blank"
           rel="noopener noreferrer"
           className="text-xl text-slate-500 hover:text-primary hover:-translate-y-1 transition-all duration-300"
