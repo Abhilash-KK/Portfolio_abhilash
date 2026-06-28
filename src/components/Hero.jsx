@@ -50,7 +50,7 @@ export default function Hero() {
 
             {/* Neural Net Image */}
             <img
-              src="/hero_neural_net.png"
+              src={`${import.meta.env.BASE_URL}hero_neural_net.png`}
               alt="Futuristic Neural Network"
               className="relative w-full h-full object-cover rounded-full border border-white/10 z-10 shadow-[0_0_50px_rgba(168,85,247,0.25)]"
             />

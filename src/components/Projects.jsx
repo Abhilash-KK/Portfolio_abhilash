@@ -20,7 +20,7 @@ export default function Projects() {
         'Designed a GUI interface to upload images and display results with integrated voice alerts.'
       ],
       tags: ['Python', 'Deep Learning', 'YOLOv8', 'Computer Vision', 'ResNet', 'GUI Development'],
-      image: '/proj_tsrd.png',
+      image: `${import.meta.env.BASE_URL}proj_tsrd.png`,
       bgGradient: 'from-blue-600/30 to-purple-600/30'
     },
     {
@@ -36,7 +36,7 @@ export default function Projects() {
         'Collaborated with IT developers, practicing agile communication and team workflow principles.'
       ],
       tags: ['Web Application', 'Mobile Design', 'Software Principles', 'Agile Workflow', 'Collaboration'],
-      image: '/proj_mr_sevaka.png',
+      image: `${import.meta.env.BASE_URL}proj_mr_sevaka.png`,
       bgGradient: 'from-purple-600/30 to-pink-600/30'
     },
     {
@@ -53,7 +53,7 @@ export default function Projects() {
       ],
       tags: ['Web Portal', 'Full-Stack', 'User Auth', 'Academic Tech', 'Cloud Hosting', 'Render'],
       demoUrl: 'https://leave-management-0oez.onrender.com',
-      image: '/proj_leave_hub.png',
+      image: `${import.meta.env.BASE_URL}proj_leave_hub.png`,
       bgGradient: 'from-pink-600/30 to-blue-600/30'
     }
   ];
