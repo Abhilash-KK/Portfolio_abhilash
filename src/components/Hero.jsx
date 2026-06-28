@@ -57,13 +57,16 @@ export default function Hero() {
         {/* Left text elements */}
         <ScrollReveal className="flex flex-col items-start text-left">
           <span className="font-display text-[0.8rem] font-bold tracking-[0.3em] text-primary mb-4 block uppercase">
-            ABHILASH K K
+            HI, THERE!
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tight text-white mb-6 uppercase">
-            FULL STACK<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-primary">DEVELOPER</span>
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tight text-white mb-4 uppercase">
+            HI, I'M <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-primary">ABHILASH K K</span>
           </h1>
-          <p className="font-sans text-slate-400 text-base md:text-lg mb-8 max-w-[480px]">
+          <p className="font-display text-base sm:text-lg md:text-xl font-bold text-slate-200 mb-4 tracking-wide uppercase border-l-2 border-primary pl-3">
+            MCA Student | Aspiring Full Stack Developer
+          </p>
+          <p className="font-sans text-slate-400 text-sm sm:text-base md:text-lg mb-8 max-w-[480px]">
             Building intelligent computer vision systems, training complex neural network models, and coding robust software solutions.
           </p>
           
