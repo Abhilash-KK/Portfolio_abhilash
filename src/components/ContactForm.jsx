@@ -61,7 +61,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="relative py-24 px-6 md:px-12 max-w-[1200px] mx-auto overflow-hidden">
+    <section id="contact" className="relative py-24 pl-6 pr-16 md:pl-12 md:pr-24 max-w-[1200px] mx-auto overflow-hidden">
       <div className="grid grid-cols-1 w-full relative">
         <ScrollReveal className="flex flex-col items-start mb-16">
           {/* Title */}
@@ -71,50 +71,73 @@ export default function ContactForm() {
           <div className="h-[3px] w-48 bg-gradient-to-r from-green-400 via-yellow-400 to-purple-600 mt-3 rounded-full"></div>
         </ScrollReveal>
 
-        {/* Inline Form */}
+        {/* Structured Form */}
         <ScrollReveal className="mb-20">
-          <form onSubmit={handleSubmit} className="flex flex-wrap items-center gap-y-8 gap-x-4 font-display text-base md:text-xl text-white uppercase leading-relaxed">
-            <span className="text-slate-300">My Name Is</span>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="YOUR NAME"
-              className="bg-transparent border-b border-border-dark py-2 px-3 focus:outline-none focus:border-primary text-white font-sans text-sm md:text-base normal-case min-w-[200px] transition-colors"
-              required
-            />
+          <form onSubmit={handleSubmit} className="flex flex-col gap-8 w-full max-w-[900px]">
+            {/* Row 1: Name and Email */}
+            <div className="flex flex-col md:flex-row gap-8 w-full">
+              {/* Name field */}
+              <div className="flex items-center gap-4 flex-1 border-b border-border-dark/60 py-3">
+                <span className="text-slate-300 font-display text-xs md:text-sm tracking-wider font-bold shrink-0">
+                  MY NAME IS
+                </span>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="YOUR NAME"
+                  className="bg-transparent focus:outline-none text-white font-sans text-sm md:text-base w-full placeholder:text-slate-700"
+                  required
+                />
+              </div>
+              
+              {/* Email field */}
+              <div className="flex items-center gap-4 flex-1 border-b border-border-dark/60 py-3">
+                <span className="text-slate-300 font-display text-xs md:text-sm tracking-wider font-bold shrink-0">
+                  MY EMAIL IS
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="YOUR EMAIL"
+                  className="bg-transparent focus:outline-none text-white font-sans text-sm md:text-base w-full placeholder:text-slate-700"
+                  required
+                />
+              </div>
+            </div>
             
-            <span className="text-slate-300">My Email Is</span>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="YOUR EMAIL"
-              className="bg-transparent border-b border-border-dark py-2 px-3 focus:outline-none focus:border-primary text-white font-sans text-sm md:text-base normal-case min-w-[200px] transition-colors"
-              required
-            />
-            
-            <span className="text-slate-300">I Am Interested In</span>
-            <input
-              type="text"
-              name="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              placeholder="PROJECT / TOPIC"
-              className="bg-transparent border-b border-border-dark py-2 px-3 focus:outline-none focus:border-primary text-white font-sans text-sm md:text-base normal-case min-w-[250px] transition-colors flex-1"
-              required
-            />
+            {/* Row 2: Message/Topic */}
+            <div className="flex items-center gap-4 border-b border-border-dark/60 py-3 w-full">
+              <span className="text-slate-300 font-display text-xs md:text-sm tracking-wider font-bold shrink-0">
+                I AM INTERESTED IN
+              </span>
+              <input
+                type="text"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
+                placeholder="PROJECT DETAILS / MESSAGE"
+                className="bg-transparent focus:outline-none text-white font-sans text-sm md:text-base w-full placeholder:text-slate-700"
+                required
+              />
+            </div>
 
-             <button
-              type="submit"
-              disabled={status === 'sending'}
-              className="font-display text-xs font-bold tracking-widest bg-primary hover:bg-primary-hover text-white px-8 py-3.5 uppercase transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] cursor-pointer disabled:opacity-50"
-            >
-              {status === 'sending' ? 'SENDING...' : 'SEND'}
-            </button>
+            {/* Row 3: Submit Button */}
+            <div className="flex justify-start md:justify-end mt-4">
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="font-display text-xs font-bold tracking-widest bg-primary hover:bg-primary-hover text-white px-8 py-3.5 uppercase transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] cursor-pointer disabled:opacity-50"
+              >
+                {status === 'sending' ? 'SENDING...' : 'SEND'}
+              </button>
+            </div>
           </form>
+          
+          {/* Status alerts */}
           {status === 'success' && (
             <p className="mt-6 text-green-400 font-display text-sm tracking-wider uppercase animate-pulse">
               ✔ Message sent successfully! I will get in touch soon.
