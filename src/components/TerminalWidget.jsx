@@ -150,7 +150,6 @@ export default function TerminalWidget() {
             disabled={matrixActive}
             placeholder="type 'help'..."
             className="bg-transparent text-white focus:outline-none w-full font-mono caret-primary placeholder:text-slate-700"
-            autoFocus
           />
         </form>
       </div>
