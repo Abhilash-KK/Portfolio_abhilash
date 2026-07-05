@@ -1,6 +1,7 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
 import TerminalWidget from './TerminalWidget';
+import GithubStream from './GithubStream';
 
 export default function About() {
   const pillars = [
@@ -72,12 +73,20 @@ export default function About() {
           ))}
         </div>
 
-        {/* Interactive Hacker Terminal console box */}
-        <div className="w-full flex flex-col items-center mb-16">
-          <h3 className="font-display text-xs font-bold text-slate-500 tracking-[0.25em] uppercase mb-4">
-            Interactive Diagnostics Shell
-          </h3>
-          <TerminalWidget />
+        {/* Interactive Hacker Terminal & GitHub Stream Dashboard */}
+        <div className="w-full max-w-[1100px] flex flex-col lg:flex-row gap-6 items-stretch mb-16">
+          <div className="flex-1 flex flex-col items-center">
+            <h3 className="font-display text-xs font-bold text-slate-500 tracking-[0.25em] uppercase mb-4 self-center lg:self-start">
+              Interactive Diagnostics Shell
+            </h3>
+            <TerminalWidget />
+          </div>
+          <div className="w-full lg:w-auto flex flex-col items-center shrink-0">
+            <h3 className="font-display text-xs font-bold text-slate-500 tracking-[0.25em] uppercase mb-4 self-center lg:self-start">
+              Live Activity Stream
+            </h3>
+            <GithubStream />
+          </div>
         </div>
 
         {/* Expertise Pillars List */}
