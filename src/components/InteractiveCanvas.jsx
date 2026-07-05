@@ -65,11 +65,12 @@ export default function InteractiveCanvas() {
       }
 
       draw() {
+        const primaryColor = window.getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#a855f7';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(168, 85, 247, 0.45)'; // Glow purple
+        ctx.fillStyle = `${primaryColor}73`; // Hex color with ~45% alpha (73 in hex)
         ctx.shadowBlur = 4;
-        ctx.shadowColor = '#a855f7';
+        ctx.shadowColor = primaryColor;
         ctx.fill();
         ctx.shadowBlur = 0; // Reset
       }
@@ -112,15 +113,17 @@ export default function InteractiveCanvas() {
 
     // Animation Loop
     const animate = () => {
+      const primaryColor = window.getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#a855f7';
+
       if (bgModeRef.current === 'matrix') {
         // Draw Matrix digital rain
         ctx.fillStyle = 'rgba(5, 5, 5, 0.08)'; // slow fade to leave trails
         ctx.fillRect(0, 0, width, height);
 
-        ctx.fillStyle = 'rgba(34, 197, 94, 0.85)'; // Green code characters
+        ctx.fillStyle = primaryColor; // Match selected theme accent!
         ctx.font = `bold ${fontSize}px monospace`;
         ctx.shadowBlur = 4;
-        ctx.shadowColor = '#22c55e';
+        ctx.shadowColor = primaryColor;
 
         for (let i = 0; i < yPos.length; i++) {
           // Random character (Katana or ASCII-like symbols)
@@ -158,9 +161,11 @@ export default function InteractiveCanvas() {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`;
+              ctx.strokeStyle = primaryColor;
               ctx.lineWidth = 0.8;
+              ctx.globalAlpha = alpha;
               ctx.stroke();
+              ctx.globalAlpha = 1.0;
             }
           }
 
@@ -175,9 +180,11 @@ export default function InteractiveCanvas() {
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(mouse.x, mouse.y);
-              ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`;
+              ctx.strokeStyle = '#22c55e'; // keep connection green or make it dynamic? Let's make it green/primary mix
               ctx.lineWidth = 0.8;
+              ctx.globalAlpha = alpha;
               ctx.stroke();
+              ctx.globalAlpha = 1.0;
             }
           }
         }

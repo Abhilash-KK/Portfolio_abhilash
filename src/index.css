@@ -3,8 +3,8 @@
 @theme {
   --font-sans: 'Outfit', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
-  --color-primary: #a855f7; /* Neon purple */
-  --color-primary-hover: #c084fc;
+  --color-primary: var(--primary-color, #a855f7); /* Neon primary */
+  --color-primary-hover: var(--primary-color-hover, #c084fc);
   --color-bg-dark: #050505;
   --color-card-dark: #0b0b0f;
   --color-border-dark: #1f1f29;
@@ -35,6 +35,6 @@
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #a855f7;
+    background: var(--primary-color, #a855f7);
   }
 }
