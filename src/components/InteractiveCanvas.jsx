@@ -1,7 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function InteractiveCanvas() {
   const canvasRef = useRef(null);
+  const [bgMode, setBgMode] = useState(() => localStorage.getItem('bg-mode') || 'neural');
+  const bgModeRef = useRef(bgMode);
+
+  useEffect(() => {
+    bgModeRef.current = bgMode;
+  }, [bgMode]);
+
+  useEffect(() => {
+    const handleBgChange = (e) => {
+      setBgMode(e.detail);
+    };
+    window.addEventListener('bg-mode-change', handleBgChange);
+    return () => window.removeEventListener('bg-mode-change', handleBgChange);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -66,6 +80,11 @@ export default function InteractiveCanvas() {
       particles.push(new Particle());
     }
 
+    // Matrix Rain Initialization
+    const fontSize = 14;
+    let cols = Math.floor(width / fontSize);
+    let yPos = Array(cols).fill(0).map(() => Math.random() * -height);
+
     // Listeners
     const handleMouseMove = (e) => {
       mouse.x = e.clientX;
@@ -81,6 +100,10 @@ export default function InteractiveCanvas() {
       if (!canvas) return;
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
+      
+      // Re-initialize columns on resize for Matrix mode
+      cols = Math.floor(width / fontSize);
+      yPos = Array(cols).fill(0).map(() => Math.random() * -height);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -89,46 +112,73 @@ export default function InteractiveCanvas() {
 
     // Animation Loop
     const animate = () => {
-      ctx.clearRect(0, 0, width, height);
+      if (bgModeRef.current === 'matrix') {
+        // Draw Matrix digital rain
+        ctx.fillStyle = 'rgba(5, 5, 5, 0.08)'; // slow fade to leave trails
+        ctx.fillRect(0, 0, width, height);
 
-      // Update and draw particles
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
-      });
+        ctx.fillStyle = 'rgba(34, 197, 94, 0.85)'; // Green code characters
+        ctx.font = `bold ${fontSize}px monospace`;
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = '#22c55e';
 
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+        for (let i = 0; i < yPos.length; i++) {
+          // Random character (Katana or ASCII-like symbols)
+          const text = String.fromCharCode(Math.floor(Math.random() * 96) + 33);
+          const x = i * fontSize;
+          const y = yPos[i];
+          ctx.fillText(text, x, y);
 
-          if (dist < connectionDistance) {
-            const alpha = (connectionDistance - dist) / connectionDistance * 0.15;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
+          if (y > height || (y > 0 && Math.random() < 0.015)) {
+            yPos[i] = -fontSize;
+          } else {
+            yPos[i] += fontSize;
           }
         }
+        ctx.shadowBlur = 0;
+      } else {
+        // Draw default Neural Net nodes
+        ctx.clearRect(0, 0, width, height);
 
-        // Draw connection to mouse
-        if (mouse.x !== null && mouse.y !== null) {
-          const dx = particles[i].x - mouse.x;
-          const dy = particles[i].y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+        // Update and draw particles
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
 
-          if (dist < mouse.radius) {
-            const alpha = (mouse.radius - dist) / mouse.radius * 0.2;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`; // Connect with green trace line
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < connectionDistance) {
+              const alpha = (connectionDistance - dist) / connectionDistance * 0.15;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(168, 85, 247, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+
+          // Draw connection to mouse
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = particles[i].x - mouse.x;
+            const dy = particles[i].y - mouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < mouse.radius) {
+              const alpha = (mouse.radius - dist) / mouse.radius * 0.2;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = `rgba(34, 197, 94, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
           }
         }
       }
@@ -149,7 +199,9 @@ export default function InteractiveCanvas() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-40"
+      className={`fixed inset-0 w-full h-full pointer-events-none z-0 transition-opacity duration-500 ${
+        bgMode === 'matrix' ? 'opacity-25' : 'opacity-40'
+      }`}
     />
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { playKeyboard, playSuccess, playClick } from '../utils/sfx';
 
 export default function TerminalWidget() {
   const [history, setHistory] = useState([
@@ -51,24 +52,28 @@ export default function TerminalWidget() {
     setInputVal('');
 
     if (!commandText) return;
+    playClick();
 
     // Append user input to history
     const newHistory = [...history, { text: `guest@abhilash-kk:~$ ${commandText}`, type: 'input' }];
 
     if (commandText === 'clear') {
       setHistory([]);
+      playSuccess();
       return;
     }
 
     if (commandText === 'matrix') {
       setHistory([...newHistory, { text: 'Starting system matrix diagnostic scan...', type: 'success' }]);
       setMatrixActive(true);
+      playSuccess();
       setTimeout(() => {
         setMatrixActive(false);
         setHistory((prev) => [
           ...prev,
           { text: 'System matrix scan completed successfully. Diagnostics OK.', type: 'info' }
         ]);
+        playSuccess();
       }, 4000);
       return;
     }
@@ -76,6 +81,7 @@ export default function TerminalWidget() {
     if (commands[commandText]) {
       const outputLines = commands[commandText].map((line) => ({ text: line, type: 'output' }));
       setHistory([...newHistory, ...outputLines, { text: '', type: 'spacer' }]);
+      playSuccess();
     } else {
       setHistory([
         ...newHistory,
@@ -147,6 +153,7 @@ export default function TerminalWidget() {
             type="text"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
+            onKeyDown={playKeyboard}
             disabled={matrixActive}
             placeholder="type 'help'..."
             className="bg-transparent text-white focus:outline-none w-full font-mono caret-primary placeholder:text-slate-700"
