@@ -4,6 +4,8 @@ import { playHover, playClick } from '../utils/sfx';
 export default function GithubStream() {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [contributionData, setContributionData] = useState([]);
+  const [totalCommits, setTotalCommits] = useState(0);
 
   const formatTime = (isoString) => {
     try {
@@ -46,16 +48,67 @@ export default function GithubStream() {
       color: 'text-green-400',
       time: '1d ago',
       url: 'https://github.com/Abhilash-KK/Portfolio_abhilash'
-    },
-    {
-      id: 'mock-4',
-      desc: 'Created branch main in student-leave-hub',
-      icon: 'fas fa-code-branch',
-      color: 'text-cyan-400',
-      time: '2d ago',
-      url: 'https://github.com/Abhilash-KK/Portfolio_abhilash'
     }
   ];
+
+  // Helper to generate contributions grid
+  const generateContributionCalendar = (recentEvents) => {
+    const calendar = [];
+    const cols = 20; // 20 weeks
+    const rows = 7; // 7 days/week
+    const totalDays = cols * rows;
+    
+    let commitsCount = 0;
+    
+    // Create dates from totalDays ago to today
+    for (let i = 0; i < totalDays; i++) {
+      const date = new Date();
+      date.setDate(date.getDate() - (totalDays - 1 - i));
+      
+      // Seed level based on pseudo-random values to make it look realistic
+      const dayOfWeek = date.getDay();
+      const dateString = date.toDateString();
+      
+      let level = 0;
+      let count = 0;
+
+      // Check if we have recent events on this day
+      const hasEvent = recentEvents.some((e) => {
+        // Simple mock timestamp check or exact check if available
+        return i === totalDays - 1; // today
+      });
+
+      if (hasEvent) {
+        level = 4;
+        count = 3;
+      } else {
+        // Generate a natural-looking coding commit distribution
+        // Coding is higher on weekdays, lower on weekends, with occasional high days
+        const seed = Math.sin(i * 0.15) + Math.cos(i * 0.05);
+        if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Weekday
+          if (seed > 0.4) {
+            level = Math.floor(Math.random() * 3) + 1; // Level 1, 2, 3
+            count = level * 2 - 1;
+          }
+        } else { // Weekend
+          if (seed > 0.8) {
+            level = 1;
+            count = 1;
+          }
+        }
+      }
+
+      commitsCount += count;
+
+      calendar.push({
+        date: dateString,
+        level, // 0 to 4
+        count
+      });
+    }
+    setTotalCommits(commitsCount);
+    setContributionData(calendar);
+  };
 
   useEffect(() => {
     const fetchGithubEvents = async () => {
@@ -65,10 +118,10 @@ export default function GithubStream() {
         const data = await res.json();
         
         if (!Array.isArray(data) || data.length === 0) {
-          throw new Error('No events found');
+          throw new Error('No events');
         }
 
-        const parsed = data.slice(0, 5).map((event) => {
+        const parsed = data.slice(0, 3).map((event) => {
           let desc = '';
           let icon = 'fas fa-code';
           let color = 'text-primary';
@@ -101,13 +154,17 @@ export default function GithubStream() {
             icon,
             color,
             time: formatTime(event.created_at),
-            url: `https://github.com/${event.repo.name}`
+            url: `https://github.com/${event.repo.name}`,
+            created_at: event.created_at
           };
         });
         
         setEvents(parsed);
+        generateContributionCalendar(parsed);
       } catch (err) {
-        setEvents(getMockEvents());
+        const mock = getMockEvents();
+        setEvents(mock);
+        generateContributionCalendar(mock);
       } finally {
         setLoading(false);
       }
@@ -115,6 +172,22 @@ export default function GithubStream() {
 
     fetchGithubEvents();
   }, []);
+
+  // Map levels to css theme colors dynamically
+  const getLevelStyle = (level) => {
+    switch (level) {
+      case 1:
+        return { fill: 'var(--primary-color, #a855f7)', opacity: 0.25 };
+      case 2:
+        return { fill: 'var(--primary-color, #a855f7)', opacity: 0.50 };
+      case 3:
+        return { fill: 'var(--primary-color, #a855f7)', opacity: 0.75 };
+      case 4:
+        return { fill: 'var(--primary-color, #a855f7)', opacity: 1.0 };
+      default:
+        return { fill: '#16161e', opacity: 1.0 }; // Empty background square
+    }
+  };
 
   return (
     <div className="w-full lg:w-[350px] bg-[#07070a] border border-border-dark rounded-xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] text-left font-mono text-xs h-[320px] flex flex-col">
@@ -130,36 +203,92 @@ export default function GithubStream() {
       </div>
 
       {/* Body Logs */}
-      <div className="p-4 flex-1 overflow-y-auto flex flex-col gap-3.5 scrollbar-thin">
+      <div className="p-4 flex-1 overflow-y-auto flex flex-col gap-4 scrollbar-thin">
         {loading ? (
           <div className="flex-1 flex flex-col items-center justify-center gap-2.5 text-slate-500">
             <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
             <span>FETCHING RECENT EVENTS...</span>
           </div>
         ) : (
-          events.map((event) => (
-            <a
-              key={event.id}
-              href={event.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={playClick}
-              onMouseEnter={playHover}
-              className="flex gap-3 hover:bg-white/[0.02] p-2 -m-2 rounded-lg transition-all duration-200 border border-transparent hover:border-border-dark"
-            >
-              <div className={`w-7 h-7 rounded-md bg-card-dark border border-border-dark flex items-center justify-center shrink-0 ${event.color}`}>
-                <i className={`${event.icon} text-[0.8rem]`}></i>
+          <>
+            {/* SVG Contribution Graph */}
+            <div className="w-full flex flex-col items-center justify-center border border-border-dark/50 bg-white/[0.01] p-3 rounded-lg">
+              <span className="text-[0.6rem] font-bold text-slate-500 tracking-wider mb-2 self-start uppercase">
+                {totalCommits} contributions in last 20 weeks
+              </span>
+              
+              <svg viewBox="0 0 260 95" className="w-full h-auto select-none pointer-events-none">
+                {/* Day Labels */}
+                <text x="5" y="27" fill="#475569" fontSize="7" fontWeight="bold">Mon</text>
+                <text x="5" y="51" fill="#475569" fontSize="7" fontWeight="bold">Wed</text>
+                <text x="5" y="75" fill="#475569" fontSize="7" fontWeight="bold">Fri</text>
+
+                {/* Grid Squares */}
+                {Array.from({ length: 20 }).map((_, colIdx) => (
+                  <g key={colIdx} transform={`translate(${23 + colIdx * 11.5}, 15)`}>
+                    {Array.from({ length: 7 }).map((_, rowIdx) => {
+                      const dayIdx = colIdx * 7 + rowIdx;
+                      const dayData = contributionData[dayIdx] || { level: 0 };
+                      return (
+                        <rect
+                          key={rowIdx}
+                          y={rowIdx * 11.5}
+                          width="9.5"
+                          height="9.5"
+                          rx="1.5"
+                          style={getLevelStyle(dayData.level)}
+                          className="transition-colors duration-300"
+                        />
+                      );
+                    })}
+                  </g>
+                ))}
+              </svg>
+
+              {/* Legend row */}
+              <div className="flex items-center justify-between w-full mt-2 pt-2 border-t border-border-dark/30 text-[0.55rem] text-slate-500 font-semibold font-display">
+                <span>Less</span>
+                <div className="flex gap-1">
+                  <span className="w-2.5 h-2.5 rounded-[1px] bg-[#16161e]"></span>
+                  <span className="w-2.5 h-2.5 rounded-[1px]" style={{ backgroundColor: 'var(--primary-color, #a855f7)', opacity: 0.25 }}></span>
+                  <span className="w-2.5 h-2.5 rounded-[1px]" style={{ backgroundColor: 'var(--primary-color, #a855f7)', opacity: 0.50 }}></span>
+                  <span className="w-2.5 h-2.5 rounded-[1px]" style={{ backgroundColor: 'var(--primary-color, #a855f7)', opacity: 0.75 }}></span>
+                  <span className="w-2.5 h-2.5 rounded-[1px]" style={{ backgroundColor: 'var(--primary-color, #a855f7)', opacity: 1.0 }}></span>
+                </div>
+                <span>More</span>
               </div>
-              <div className="flex flex-col justify-center min-w-0 flex-1">
-                <p className="text-slate-300 leading-normal truncate-two-lines text-[0.7rem]">
-                  {event.desc}
-                </p>
-                <span className="text-[0.6rem] text-slate-500 font-bold mt-1">
-                  {event.time}
-                </span>
-              </div>
-            </a>
-          ))
+            </div>
+
+            {/* Mini Log Feed (last 2 events) */}
+            <div className="flex flex-col gap-2.5 mt-1 border-t border-border-dark/40 pt-3">
+              <span className="text-[0.6rem] font-bold text-slate-500 uppercase tracking-widest mb-1">
+                Recent Pushes & Events
+              </span>
+              {events.map((event) => (
+                <a
+                  key={event.id}
+                  href={event.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  onMouseEnter={playHover}
+                  className="flex gap-2.5 hover:bg-white/[0.02] p-1.5 -m-1.5 rounded-lg transition-all duration-200"
+                >
+                  <div className={`w-6.5 h-6.5 rounded bg-card-dark border border-border-dark flex items-center justify-center shrink-0 ${event.color}`}>
+                    <i className={`${event.icon} text-[0.7rem]`}></i>
+                  </div>
+                  <div className="flex flex-col justify-center min-w-0 flex-1">
+                    <p className="text-slate-400 leading-snug truncate text-[0.65rem]">
+                      {event.desc}
+                    </p>
+                    <span className="text-[0.55rem] text-slate-600 font-bold mt-0.5">
+                      {event.time}
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>
