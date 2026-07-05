@@ -1,6 +1,5 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
-import RadarChart from './RadarChart';
 import SkillsSandbox from './SkillsSandbox';
 
 export default function Skills() {
@@ -28,10 +27,10 @@ export default function Skills() {
         <div className="h-[3px] w-48 bg-gradient-to-r from-green-400 via-yellow-400 to-purple-600 mt-3 rounded-full"></div>
       </ScrollReveal>
 
-      {/* Grid containing Lists, Radar, and Physics Sandbox */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start justify-items-center">
+      {/* Grid containing Lists and Physics Sandbox (Balanced 2-column layout) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start justify-items-center w-full">
         {/* Column 1: Detailed Lists */}
-        <div className="flex flex-col gap-8 w-full max-w-[400px]">
+        <div className="flex flex-col gap-8 w-full max-w-[550px]">
           {/* Technical Skills Card */}
           <ScrollReveal className="bg-[#0b0b0f] border border-border-dark p-8 rounded-2xl shadow-xl hover:border-primary/30 transition-all duration-300 w-full">
             <h3 className="font-display text-lg font-bold text-white mb-6 flex items-center gap-3 uppercase tracking-wider">
@@ -92,13 +91,8 @@ export default function Skills() {
           </ScrollReveal>
         </div>
 
-        {/* Column 2: Radar Chart */}
-        <ScrollReveal className="w-full max-w-[400px]">
-          <RadarChart />
-        </ScrollReveal>
-
-        {/* Column 3: Physics Sandbox */}
-        <ScrollReveal className="w-full max-w-[400px]">
+        {/* Column 2: Physics Sandbox */}
+        <ScrollReveal className="w-full max-w-[550px]">
           <SkillsSandbox />
         </ScrollReveal>
       </div>
