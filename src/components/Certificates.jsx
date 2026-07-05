@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
+import Tilt from './Tilt';
 
 export default function Certificates() {
   const certifications = [
@@ -43,19 +44,18 @@ export default function Certificates() {
       {/* Certificates Dark Cards Grid (wrapping 5 items nicely) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
         {certifications.map((cert, index) => (
-          <ScrollReveal
-            key={index}
-            className="bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/40 hover:-translate-y-1.5 transition-all duration-300 text-center py-12 px-8 flex flex-col items-center"
-          >
-            <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary text-2xl shadow-[0_0_15px_rgba(168,85,247,0.15)]">
-              <i className={cert.icon}></i>
-            </div>
-            <h3 className="font-display text-lg font-bold text-white mb-2 uppercase tracking-wide">
-              {cert.title}
-            </h3>
-            <p className="text-slate-400 text-sm font-medium">
-              {cert.desc}
-            </p>
+          <ScrollReveal key={index} className="h-full">
+            <Tilt className="bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/45 transition-all duration-300 text-center py-12 px-8 flex flex-col items-center h-full">
+              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary text-2xl shadow-[0_0_15px_rgba(168,85,247,0.15)]">
+                <i className={cert.icon}></i>
+              </div>
+              <h3 className="font-display text-lg font-bold text-white mb-2 uppercase tracking-wide">
+                {cert.title}
+              </h3>
+              <p className="text-slate-400 text-sm font-medium">
+                {cert.desc}
+              </p>
+            </Tilt>
           </ScrollReveal>
         ))}
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ScrollReveal from './ScrollReveal';
+import Tilt from './Tilt';
 
 export default function Projects() {
   const [activeProject, setActiveProject] = useState(null);
@@ -72,21 +73,24 @@ export default function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {projectsData.map((project) => (
           <ScrollReveal key={project.id} className="group cursor-pointer" onClick={() => setActiveProject(project)}>
-            {/* Card Thumbnail Container */}
-            <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-card-dark border border-border-dark mb-4 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
-              {/* actual project image */}
-              <img 
-                src={project.image} 
-                alt={project.displayTitle}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 z-10"
-              />
-              {/* Subtle hover gradient overlay */}
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
-                <span className="font-display text-xs font-bold tracking-widest text-white bg-bg-dark/80 px-4 py-2 border border-border-dark rounded shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                  VIEW DETAILS
-                </span>
+            {/* 3D Tilt Card Container */}
+            <Tilt className="rounded-xl overflow-hidden mb-4 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+              {/* Card Thumbnail Container */}
+              <div className="relative w-full aspect-video bg-card-dark border border-border-dark">
+                {/* actual project image */}
+                <img 
+                  src={project.image} 
+                  alt={project.displayTitle}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 z-10"
+                />
+                {/* Subtle hover gradient overlay */}
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-primary/20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center z-20">
+                  <span className="font-display text-xs font-bold tracking-widest text-white bg-bg-dark/80 px-4 py-2 border border-border-dark rounded shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                    VIEW DETAILS
+                  </span>
+                </div>
               </div>
-            </div>
+            </Tilt>
 
             {/* Label underneath */}
             <h3 className="font-display text-center text-lg font-bold tracking-widest text-white group-hover:text-primary transition-colors uppercase">
