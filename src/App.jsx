@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,6 +12,15 @@ import Footer from './components/Footer';
 import InteractiveCanvas from './components/InteractiveCanvas';
 
 export default function App() {
+  useEffect(() => {
+    // Disable browser scroll restoration on refresh
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    // Force scroll to top on mount
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-bg-dark text-white min-h-screen relative antialiased selection:bg-primary selection:text-white">
       {/* Dynamic interactive neural net canvas background */}
