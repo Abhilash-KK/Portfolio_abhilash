@@ -5,6 +5,7 @@ import { playClick, playHover } from '../utils/sfx';
 
 export default function Certificates() {
   const [activeCert, setActiveCert] = useState(null);
+  const [activeImageIdx, setActiveImageIdx] = useState(0);
 
   const certifications = [
     {
@@ -12,43 +13,50 @@ export default function Certificates() {
       icon: 'fas fa-trophy',
       title: 'Smart India Hackathon 2025',
       desc: 'Certificate of Appreciation',
-      file: `${import.meta.env.BASE_URL}certificates/smart_india_hackathon_2025.pdf`
+      images: [`${import.meta.env.BASE_URL}certificates/smart_india_hackathon_2025.png`],
+      pdf: `${import.meta.env.BASE_URL}certificates/smart_india_hackathon_2025.pdf`
     },
     {
       id: 'nptel-ml',
       icon: 'fas fa-brain',
       title: 'NPTEL Certification',
       desc: 'Machine Learning for Engineering and Science Applications',
-      file: `${import.meta.env.BASE_URL}certificates/nptel_ml.pdf`
+      images: [`${import.meta.env.BASE_URL}certificates/nptel_ml.png`],
+      pdf: `${import.meta.env.BASE_URL}certificates/nptel_ml.pdf`
     },
     {
       id: 'nasa-space-apps',
       icon: 'fas fa-rocket',
       title: 'Nasa Space Apps',
-      desc: 'Participation Certificate',
-      file: `${import.meta.env.BASE_URL}certificates/nasa_space_apps.pdf`
+      desc: 'Participation Certificates (Global & Local Host)',
+      images: [
+        `${import.meta.env.BASE_URL}certificates/nasa_space_apps_1.png`,
+        `${import.meta.env.BASE_URL}certificates/nasa_space_apps_kanjirapally.png`
+      ],
+      pdf: `${import.meta.env.BASE_URL}certificates/nasa_space_apps.pdf`
     },
     {
       id: 'nptel-blockchain',
       icon: 'fas fa-cubes',
       title: 'NPTEL Certification',
       desc: 'Blockchain and Its Applications',
-      file: `${import.meta.env.BASE_URL}certificates/nptel_blockchain.pdf`
+      images: [`${import.meta.env.BASE_URL}certificates/nptel_blockchain.png`],
+      pdf: `${import.meta.env.BASE_URL}certificates/nptel_blockchain.pdf`
     },
     {
       id: 'i2u-level2',
       icon: 'fas fa-certificate',
       title: 'I2U 2025 Project Contest',
       desc: 'Level 2 Funded Certificate (Automated Cardamom Harvesting System)',
-      file: `${import.meta.env.BASE_URL}certificates/i2u_level2.pdf`
+      images: [`${import.meta.env.BASE_URL}certificates/i2u_level2.png`],
+      pdf: `${import.meta.env.BASE_URL}certificates/i2u_level2.pdf`
     }
   ];
 
-  const handleCardClick = (cert) => {
+  const handleOpenModal = (cert) => {
     playClick();
-    if (cert.file) {
-      setActiveCert(cert);
-    }
+    setActiveCert(cert);
+    setActiveImageIdx(0);
   };
 
   return (
@@ -66,36 +74,43 @@ export default function Certificates() {
         {certifications.map((cert) => (
           <ScrollReveal key={cert.id} className="h-full">
             <Tilt 
-              onClick={() => handleCardClick(cert)}
-              className={`bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/45 transition-all duration-300 text-center py-10 px-8 flex flex-col items-center justify-between h-full relative group ${
-                cert.file ? 'cursor-pointer' : ''
-              }`}
+              onClick={() => handleOpenModal(cert)}
+              className="bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/45 transition-all duration-300 text-center py-8 px-6 flex flex-col items-center justify-between h-full relative group cursor-pointer"
             >
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary text-2xl shadow-[0_0_15px_rgba(168,85,247,0.15)] group-hover:scale-110 transition-transform duration-300">
-                  <i className={cert.icon}></i>
+              <div className="flex flex-col items-center w-full">
+                {/* Certificate Icon & Thumbnail preview */}
+                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-[#050508] border border-border-dark/60 flex items-center justify-center group-hover:border-primary/40 transition-colors">
+                  <img 
+                    src={cert.images[0]} 
+                    alt={cert.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-primary/20 transition-all duration-300 flex items-center justify-center">
+                    <span className="w-12 h-12 rounded-full bg-bg-dark/90 border border-primary/40 flex items-center justify-center text-primary text-lg shadow-lg transform group-hover:scale-110 transition-transform">
+                      <i className="fas fa-search-plus"></i>
+                    </span>
+                  </div>
                 </div>
+
                 <h3 className="font-display text-lg font-bold text-white mb-2 uppercase tracking-wide">
                   {cert.title}
                 </h3>
-                <p className="text-slate-400 text-sm font-medium mb-6">
+                <p className="text-slate-400 text-xs sm:text-sm font-medium mb-4">
                   {cert.desc}
                 </p>
               </div>
 
-              {cert.file ? (
-                <button
-                  onMouseEnter={playHover}
-                  className="font-display text-[0.7rem] font-bold tracking-widest text-primary border border-primary/30 hover:bg-primary hover:text-white px-5 py-2 rounded-lg uppercase transition-all duration-300 flex items-center gap-2 mt-2"
-                >
-                  <i className="fas fa-eye text-xs"></i>
-                  <span>VIEW CERTIFICATE</span>
-                </button>
-              ) : (
-                <span className="text-[0.65rem] font-display font-semibold tracking-widest text-slate-600 uppercase border border-border-dark/50 px-3 py-1 rounded">
-                  AWAITING FILE ATTACHMENT
-                </span>
-              )}
+              <button
+                onMouseEnter={playHover}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleOpenModal(cert);
+                }}
+                className="font-display text-[0.75rem] font-bold tracking-widest text-primary border border-primary/30 hover:bg-primary hover:text-white px-5 py-2.5 rounded-lg uppercase transition-all duration-300 flex items-center gap-2 mt-2 cursor-pointer w-full justify-center"
+              >
+                <i className="fas fa-eye text-xs"></i>
+                <span>VIEW CERTIFICATE</span>
+              </button>
             </Tilt>
           </ScrollReveal>
         ))}
@@ -104,57 +119,89 @@ export default function Certificates() {
       {/* Certificate Viewer Modal */}
       {activeCert && (
         <div 
-          className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
+          className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200"
           onClick={() => setActiveCert(null)}
         >
           <div 
-            className="bg-[#0b0b0f] border border-border-dark w-full max-w-4xl max-h-[90vh] rounded-2xl flex flex-col overflow-hidden shadow-[0_0_50px_rgba(168,85,247,0.3)] animate-in zoom-in-95 duration-200"
+            className="bg-[#0b0b0f] border border-border-dark w-full max-w-4xl max-h-[92vh] rounded-2xl flex flex-col overflow-hidden shadow-[0_0_50px_rgba(168,85,247,0.3)] animate-in zoom-in-95 duration-200"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-5 border-b border-border-dark flex items-center justify-between bg-bg-dark/90">
+            <div className="p-4 sm:p-5 border-b border-border-dark flex flex-wrap items-center justify-between gap-3 bg-bg-dark/90 shrink-0">
               <div>
                 <span className="text-[0.65rem] font-display font-bold tracking-[0.25em] text-primary block uppercase">
-                  VERIFIED CERTIFICATE
+                  VERIFIED CERTIFICATE PREVIEW
                 </span>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-white uppercase">
+                <h3 className="font-display text-base sm:text-xl font-bold text-white uppercase tracking-wide">
                   {activeCert.title}
                 </h3>
               </div>
+              
               <div className="flex items-center gap-3">
+                {/* Download PDF button */}
                 <a
-                  href={activeCert.file}
+                  href={activeCert.pdf}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-display text-[0.75rem] font-bold tracking-wider bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded-lg uppercase transition-all duration-300 flex items-center gap-2"
+                  download
+                  onMouseEnter={playHover}
+                  onClick={playClick}
+                  className="font-display text-[0.75rem] font-bold tracking-wider bg-primary hover:bg-primary-hover text-white px-4 py-2.5 rounded-lg uppercase transition-all duration-300 flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
                 >
-                  <i className="fas fa-external-link-alt text-xs"></i>
-                  <span>OPEN FULL</span>
+                  <i className="fas fa-file-pdf text-xs"></i>
+                  <span>OPEN OFFICIAL PDF</span>
                 </a>
+
+                {/* Close Button */}
                 <button
-                  onClick={() => setActiveCert(null)}
-                  className="w-9 h-9 rounded-xl border border-border-dark flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                  onClick={() => {
+                    playClick();
+                    setActiveCert(null);
+                  }}
+                  onMouseEnter={playHover}
+                  className="w-9 h-9 rounded-xl border border-border-dark flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Close Preview"
                 >
                   <i className="fas fa-times"></i>
                 </button>
               </div>
             </div>
 
-            {/* Modal Content / Preview */}
-            <div className="flex-1 bg-[#121218] p-4 flex items-center justify-center overflow-auto">
-              {activeCert.file?.endsWith('.pdf') ? (
-                <iframe 
-                  src={`${activeCert.file}#toolbar=1&view=FitH`} 
-                  className="w-full h-[70vh] border-0" 
-                  title={activeCert.title}
-                />
-              ) : (
-                <img 
-                  src={activeCert.file} 
-                  alt={activeCert.title} 
-                  className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl" 
-                />
+            {/* Modal Image Gallery Body */}
+            <div className="flex-1 bg-[#121218] p-4 flex flex-col items-center justify-center overflow-auto min-h-[350px]">
+              <img 
+                src={activeCert.images[activeImageIdx]} 
+                alt={`${activeCert.title} preview`} 
+                className="max-w-full max-h-[65vh] object-contain rounded-lg shadow-2xl border border-white/10"
+              />
+
+              {/* Multi-page certificate tabs selector (if multiple certificates exist like NASA Space Apps) */}
+              {activeCert.images.length > 1 && (
+                <div className="flex gap-3 mt-4 pt-3 border-t border-border-dark/60">
+                  {activeCert.images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        playClick();
+                        setActiveImageIdx(idx);
+                      }}
+                      className={`font-display text-xs font-bold px-4 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
+                        activeImageIdx === idx 
+                          ? 'bg-primary text-white shadow-[0_0_10px_rgba(168,85,247,0.5)]' 
+                          : 'bg-[#1a1a26] text-slate-400 hover:text-white border border-border-dark'
+                      }`}
+                    >
+                      Certificate {idx + 1} {idx === 0 ? '(Global)' : '(Local Host)'}
+                    </button>
+                  ))}
+                </div>
               )}
+            </div>
+
+            {/* Modal Footer info */}
+            <div className="px-6 py-3 border-t border-border-dark bg-bg-dark/80 flex justify-between items-center text-xs text-slate-400 font-sans shrink-0">
+              <span>{activeCert.desc}</span>
+              <span className="hidden sm:inline text-slate-500">Click anywhere outside to close</span>
             </div>
           </div>
         </div>
