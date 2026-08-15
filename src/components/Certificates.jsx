@@ -69,48 +69,24 @@ export default function Certificates() {
         <div className="h-[3px] w-48 bg-gradient-to-r from-green-400 via-yellow-400 to-purple-600 mt-3 rounded-full"></div>
       </ScrollReveal>
 
-      {/* Certificates Dark Cards Grid */}
+      {/* Certificates Dark Cards Grid (Clean Design) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
         {certifications.map((cert) => (
           <ScrollReveal key={cert.id} className="h-full">
             <Tilt 
               onClick={() => handleOpenModal(cert)}
-              className="bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/45 transition-all duration-300 text-center py-8 px-6 flex flex-col items-center justify-between h-full relative group cursor-pointer"
+              onMouseEnter={playHover}
+              className="bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/50 transition-all duration-300 text-center py-12 px-8 flex flex-col items-center justify-center h-full relative group cursor-pointer hover:-translate-y-1 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_35px_rgba(168,85,247,0.2)]"
             >
-              <div className="flex flex-col items-center w-full">
-                {/* Certificate Icon & Thumbnail preview */}
-                <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-5 bg-[#050508] border border-border-dark/60 flex items-center justify-center group-hover:border-primary/40 transition-colors">
-                  <img 
-                    src={cert.images[0]} 
-                    alt={cert.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                  />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-primary/20 transition-all duration-300 flex items-center justify-center">
-                    <span className="w-12 h-12 rounded-full bg-bg-dark/90 border border-primary/40 flex items-center justify-center text-primary text-lg shadow-lg transform group-hover:scale-110 transition-transform">
-                      <i className="fas fa-search-plus"></i>
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="font-display text-lg font-bold text-white mb-2 uppercase tracking-wide">
-                  {cert.title}
-                </h3>
-                <p className="text-slate-400 text-xs sm:text-sm font-medium mb-4">
-                  {cert.desc}
-                </p>
+              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary text-2xl shadow-[0_0_15px_rgba(168,85,247,0.15)] group-hover:scale-110 group-hover:border-primary/40 transition-all duration-300">
+                <i className={cert.icon}></i>
               </div>
-
-              <button
-                onMouseEnter={playHover}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleOpenModal(cert);
-                }}
-                className="font-display text-[0.75rem] font-bold tracking-widest text-primary border border-primary/30 hover:bg-primary hover:text-white px-5 py-2.5 rounded-lg uppercase transition-all duration-300 flex items-center gap-2 mt-2 cursor-pointer w-full justify-center"
-              >
-                <i className="fas fa-eye text-xs"></i>
-                <span>VIEW CERTIFICATE</span>
-              </button>
+              <h3 className="font-display text-lg font-bold text-white mb-2 uppercase tracking-wide group-hover:text-primary transition-colors">
+                {cert.title}
+              </h3>
+              <p className="text-slate-400 text-sm font-medium">
+                {cert.desc}
+              </p>
             </Tilt>
           </ScrollReveal>
         ))}
@@ -130,7 +106,7 @@ export default function Certificates() {
             <div className="p-4 sm:p-5 border-b border-border-dark flex flex-wrap items-center justify-between gap-3 bg-bg-dark/90 shrink-0">
               <div>
                 <span className="text-[0.65rem] font-display font-bold tracking-[0.25em] text-primary block uppercase">
-                  VERIFIED CERTIFICATE PREVIEW
+                  VERIFIED CERTIFICATE
                 </span>
                 <h3 className="font-display text-base sm:text-xl font-bold text-white uppercase tracking-wide">
                   {activeCert.title}
