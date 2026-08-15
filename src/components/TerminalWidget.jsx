@@ -32,17 +32,18 @@ export default function TerminalWidget() {
     ],
     projects: [
       'Key Developer Accomplishments:',
-      '  1. TSRD (Traffic Sign Recognition & Detection) - DL YOLOv8 System',
-      '  2. Mr. Sevaka (Internship Trainee App) - Mobile & Web UI Workspace',
-      '  3. Student Leave Hub (College Mini Project) - Hosted live at Render'
+      '  1. Traffic Sign Detection and Recognition Using YOLO & Deep Learning',
+      '  2. Student & Employee Leave Management Hub (Django, MySQL, Bootstrap)',
+      '  3. Frontend Developer Intern Projects (React.js, Tailwind CSS, Axios)'
     ],
     contact: [
       'Primary Communication Channels:',
       '  - Email:    kkabhilash30@gmail.com',
-      '  - Phone:    +91 8590979422',
+      '  - Phone:    (+91) 8590979422',
       '  - WhatsApp: https://wa.me/918590979422',
-      '  - LinkedIn: https://www.linkedin.com/in/abhilash-k-k-47ba2438a',
-      '  - Location: Wayanad, Kerala, India'
+      '  - LinkedIn: https://www.linkedin.com/in/abhilash-kk/',
+      '  - GitHub:   https://github.com/Abhilash-KK',
+      '  - Location: Ambalavayal, Wayanad, Kerala, India'
     ]
   };
 

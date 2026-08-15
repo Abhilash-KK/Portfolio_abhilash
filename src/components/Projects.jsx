@@ -9,53 +9,50 @@ export default function Projects() {
     {
       id: 'tsrd',
       title: 'TRAFFIC SIGN DETECTION',
-      displayTitle: 'Traffic Sign Recognition & Detection (TSRD)',
-      meta: 'Deep Learning Approach | YOLOv8',
-      desc: 'An intelligent system using deep learning techniques for real-time traffic sign detection and recognition, aimed to enhance road safety by assisting drivers and supporting autonomous vehicles.',
+      displayTitle: 'Traffic Sign Detection and Recognition Using YOLO & Deep Learning',
+      meta: 'YOLO & Deep Learning System',
+      desc: 'Developed a real-time detection and recognition system utilizing YOLOv5/v8, and implemented deep learning classification models (ResNet, EfficientNet, ConvNeXt, VGGNet).',
       highlights: [
         'Implemented YOLOv5 and YOLOv8 models for real-time traffic sign detection.',
-        'Used pre-trained classification models such as ResNet, EfficientNet, ConvNeXt, and VGGNet.',
-        'Trained and tested on multiple datasets including Kaggle Traffic Sign and CCTSDB datasets.',
-        'Performed dataset preprocessing and split data into training, validation, and testing sets.',
-        'Evaluated model performance using metrics like accuracy, precision, recall, and mAP.',
-        'Designed a GUI interface to upload images and display results with integrated voice alerts.'
+        'Trained and evaluated deep learning classification models (ResNet, EfficientNet, ConvNeXt, VGGNet).',
+        'Used OpenCV and Python for image preprocessing, dataset annotation, and real-time bounding box detection.',
+        'Evaluated system performance using precision, recall, accuracy, and mAP metrics.'
       ],
-      tags: ['Python', 'Deep Learning', 'YOLOv8', 'Computer Vision', 'ResNet', 'GUI Development'],
+      tags: ['Python', 'YOLO', 'OpenCV', 'TensorFlow', 'Keras', 'ResNet', 'EfficientNet'],
       image: `${import.meta.env.BASE_URL}proj_tsrd.png`,
       bgGradient: 'from-blue-600/30 to-purple-600/30'
     },
     {
-      id: 'mr-sevaka',
-      title: 'MR. SEVAKA',
-      displayTitle: 'Mr. Sevaka (Internship Project)',
-      meta: 'Web & Mobile Application | GeekWick TechMedia',
-      desc: 'Developed "Mr. Sevaka" during an internship at GeekWick TechMedia Services Pvt Ltd (March 10, 2025 - May 2, 2025) under the guidance of IT Department mentors.',
-      highlights: [
-        'Applied core software development principles to build a clean and extensible application structure.',
-        'Designed and constructed user-friendly Web and Mobile application layouts.',
-        'Participated actively in project planning, task prioritization, and milestone execution.',
-        'Collaborated with IT developers, practicing agile communication and team workflow principles.'
-      ],
-      tags: ['Web Application', 'Mobile Design', 'Software Principles', 'Agile Workflow', 'Collaboration'],
-      image: `${import.meta.env.BASE_URL}proj_mr_sevaka.png`,
-      bgGradient: 'from-purple-600/30 to-pink-600/30'
-    },
-    {
       id: 'student-leave-hub',
-      title: 'STUDENT LEAVE HUB',
-      displayTitle: 'Student Leave Hub (College Mini Project)',
-      meta: 'Full-Stack Web Portal | Hosted on Render',
-      desc: 'Designed and deployed an advanced academic portal that enables students to register, sign in, and manage their academic leave requests effortlessly.',
+      title: 'LEAVE MANAGEMENT HUB',
+      displayTitle: 'Student & Employee Leave Management Hub',
+      meta: 'Full-Stack Web Portal | Django & MySQL',
+      desc: 'Built a secure web portal for handling leave requests, managerial approvals, and role-based authentication using Django.',
       highlights: [
-        'Built a complete web portal for student credentials and leave application handling.',
-        'Implemented secure user authentication with account registration, password encryption, and session control.',
-        'Designed simple administrative routes and dashboards to check leave status, balance tallies, and logs.',
-        'Configured cloud application deployment pipelines to run the live application on Render.'
+        'Built role-based authentication and authorization for students, employees, and managers.',
+        'Implemented automated leave balance calculations, approval workflows, and status tracking.',
+        'Designed responsive dashboard interfaces using Bootstrap, CSS, JavaScript, and Chart.js graphics.',
+        'Configured MySQL database storage for user profiles and leave logs.'
       ],
-      tags: ['Web Portal', 'Full-Stack', 'User Auth', 'Academic Tech', 'Cloud Hosting', 'Render'],
+      tags: ['Python', 'Django', 'MySQL', 'JavaScript', 'Bootstrap', 'CSS', 'Chart.js'],
       demoUrl: 'https://leave-management-0oez.onrender.com',
       image: `${import.meta.env.BASE_URL}proj_leave_hub.png`,
       bgGradient: 'from-pink-600/30 to-blue-600/30'
+    },
+    {
+      id: 'mr-sevaka',
+      title: 'MR. SEVAKA',
+      displayTitle: 'Mr. Sevaka (Frontend Developer Intern Project)',
+      meta: 'React.js & Tailwind CSS | Geek Wick TechMedia',
+      desc: 'Developed responsive UI components using React.js and Tailwind CSS during internship at Geek Wick TechMedia Services Pvt Ltd, successfully converting Figma designs into functional layouts.',
+      highlights: [
+        'Converted Figma designs into clean, responsive web and mobile user interfaces using React.js and Tailwind CSS.',
+        'Integrated REST APIs using Axios and managed application state & client-side routing.',
+        'Practiced Agile team collaboration with version control on Git and GitHub.'
+      ],
+      tags: ['React.js', 'JavaScript', 'Tailwind CSS', 'Axios', 'Figma', 'Git'],
+      image: `${import.meta.env.BASE_URL}proj_mr_sevaka.png`,
+      bgGradient: 'from-purple-600/30 to-pink-600/30'
     }
   ];
 

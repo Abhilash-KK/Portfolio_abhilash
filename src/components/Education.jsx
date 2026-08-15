@@ -5,13 +5,13 @@ export default function Education() {
   const credentials = [
     {
       title: 'MCA',
-      subtitle: 'Amal Jyothi College of Engineering',
-      desc: 'Currently pursuing a Master of Computer Application (2025 - 2027) under APJ Abdul Kalam Technological University, Kerala. Focus areas include advanced software architectures and deep learning models.'
+      subtitle: 'Amal Jyothi College of Engineering Autonomous',
+      desc: 'Master of Computer Application (2025 - 2027, Currently Pursuing) under APJ Abdul Kalam Technological University, Kanjirappally, Kerala. Cumulative GPA: 9.01/10.'
     },
     {
       title: 'BCA',
-      subtitle: 'Maharaja Institute of Technology',
-      desc: 'Completed Bachelor of Computer Application (2022 - 2025) under Mysore University, Karnataka. Graduated with a Cumulative GPA of 8.6/10, establishing strong mathematical and programming foundations.'
+      subtitle: 'Maharaja Institute of Technology Mysore',
+      desc: 'Bachelor of Computer Application (2022 - 2025) under Mysore University, Mysore, Karnataka. Graduated with a Cumulative GPA of 8.65/10.'
     },
     {
       title: 'PLUS TWO',
@@ -30,7 +30,7 @@ export default function Education() {
       <ScrollReveal className="flex flex-col items-center mb-16">
         {/* Title */}
         <h2 className="font-display text-3xl md:text-4xl font-extrabold text-white uppercase tracking-widest">
-          TESTIMONIALS
+          ACADEMIC JOURNEY
         </h2>
         <div className="h-[3px] w-48 bg-gradient-to-r from-green-400 via-yellow-400 to-purple-600 mt-3 rounded-full"></div>
       </ScrollReveal>

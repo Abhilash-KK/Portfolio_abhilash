@@ -5,17 +5,18 @@ import SkillsSandbox from './SkillsSandbox';
 export default function Skills() {
   const technicalSkills = [
     { name: 'Python', level: 90 },
+    { name: 'SQL', level: 85 },
+    { name: 'C Programming', level: 80 },
     { name: 'HTML & CSS', level: 85 },
-    { name: 'SQL', level: 80 },
-    { name: 'C Programming', level: 75 }
+    { name: 'React.js & Tailwind', level: 80 }
   ];
   const softSkills = [
-    'Problem Solving',
-    'Fast Learning',
+    'Data-Driven Decision Making',
     'Communication',
-    'Data-Driven Decision Making'
+    'Fast Learning',
+    'Problem Solving'
   ];
-  const languages = ['English', 'Malayalam'];
+  const languages = ['English', 'Malayalam', 'Hindi'];
 
   return (
     <section id="skills" className="py-24 px-6 md:px-12 max-w-[1200px] mx-auto overflow-hidden">

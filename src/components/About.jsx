@@ -15,22 +15,22 @@ export default function About() {
     {
       title: 'Education',
       icon: 'fas fa-graduation-cap',
-      desc: 'Currently pursuing MCA (Master of Computer Applications) at Amal Jyothi College of Engineering. Building strong mathematical and programming foundations.'
+      desc: 'Currently pursuing MCA at Amal Jyothi College of Engineering (GPA: 9.01/10). Completed BCA at MIT Mysore (GPA: 8.65/10).'
     },
     {
       title: 'Career Objective',
       icon: 'fas fa-bullseye',
-      desc: 'Passionate about Web Development. Aspiring to begin my professional journey in a growth-oriented organization that values innovation, dedication, and technical growth.'
+      desc: 'Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization to apply my skills, learn new technologies, and contribute to success.'
     },
     {
       title: 'Interests',
       icon: 'fas fa-brain',
-      desc: 'Deeply interested in Artificial Intelligence models, Computer Vision systems, and building responsive, secure Full Stack Web Applications.'
+      desc: 'Deeply interested in Artificial Intelligence, Computer Vision, YOLO architectures, and building responsive, secure Web Applications.'
     },
     {
       title: 'Key Strengths',
       icon: 'fas fa-bolt',
-      desc: 'Quick learner, analytical thinker, active team collaborator, and dedicated problem solver prepared to take on new technical challenges.'
+      desc: 'Quick learner, good team player, analytical thinker, fast learner, and committed to continuous learning and professional growth.'
     }
   ];
 
@@ -48,7 +48,7 @@ export default function About() {
 
         {/* Introduction text */}
         <p className="font-sans text-slate-300 text-base md:text-lg leading-[1.8] max-w-[850px] mb-16 text-center">
-          Hi, I'm Abhilash K K. I am an enthusiastic, self-driven developer looking to begin my professional journey. I utilize my analytical capabilities and educational foundations to solve complex problems, build modern applications, and learn new technical stacks rapidly.
+          Hi, I'm Abhilash K K. Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization. I aim to apply my knowledge and skills, learn new technologies, and gain practical experience while contributing to the success of the organization.
         </p>
 
         {/* Structured Info Grid */}
