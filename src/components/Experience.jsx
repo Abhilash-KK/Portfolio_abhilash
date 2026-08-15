@@ -19,8 +19,8 @@ export default function Experience() {
         'Completed an intensive web development internship, gaining hands-on experience in building responsive websites using HTML, CSS, JavaScript, and modern web practices.',
         'Collaborated on web architecture and UI implementation while demonstrating strong technical and problem-solving skills.'
       ],
-      certImage: null,
-      certPdf: null
+      certImage: `${import.meta.env.BASE_URL}certificates/msquared_internship.png`,
+      certPdf: `${import.meta.env.BASE_URL}certificates/msquared_internship.pdf`
     },
     {
       id: 'geekwick',
