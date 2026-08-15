@@ -87,6 +87,7 @@ export default function Navbar() {
     { label: 'PROJECTS', href: '#projects' },
     { label: 'EXPERIENCE', href: '#experience' },
     { label: 'ACADEMIC JOURNEY', href: '#education' },
+    { label: 'CERTIFICATES', href: '#certificates' },
     { label: 'CONTACT', href: '#contact' }
   ];
 
