@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 
-export default function Tilt({ children, className = '', options = {} }) {
+export default function Tilt({ children, className = '', options = {}, onClick, ...rest }) {
   const cardRef = useRef(null);
   const [style, setStyle] = useState({});
   const [glareStyle, setGlareStyle] = useState({ opacity: 0 });
@@ -68,6 +68,8 @@ export default function Tilt({ children, className = '', options = {} }) {
       style={style}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
+      {...rest}
     >
       {children}
       {/* Glare/Shine layer */}

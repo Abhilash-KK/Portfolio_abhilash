@@ -73,21 +73,30 @@ export default function Certificates() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
         {certifications.map((cert) => (
           <ScrollReveal key={cert.id} className="h-full">
-            <Tilt 
+            <div 
               onClick={() => handleOpenModal(cert)}
-              onMouseEnter={playHover}
-              className="bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/50 transition-all duration-300 text-center py-12 px-8 flex flex-col items-center justify-center h-full relative group cursor-pointer hover:-translate-y-1 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_35px_rgba(168,85,247,0.2)]"
+              className="h-full cursor-pointer"
             >
-              <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary text-2xl shadow-[0_0_15px_rgba(168,85,247,0.15)] group-hover:scale-110 group-hover:border-primary/40 transition-all duration-300">
-                <i className={cert.icon}></i>
-              </div>
-              <h3 className="font-display text-lg font-bold text-white mb-2 uppercase tracking-wide group-hover:text-primary transition-colors">
-                {cert.title}
-              </h3>
-              <p className="text-slate-400 text-sm font-medium">
-                {cert.desc}
-              </p>
-            </Tilt>
+              <Tilt 
+                onMouseEnter={playHover}
+                className="bg-[#0b0b0f] border border-border-dark rounded-2xl shadow-xl hover:border-primary/50 transition-all duration-300 text-center py-10 px-8 flex flex-col items-center justify-between h-full relative group hover:-translate-y-1 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_15px_35px_rgba(168,85,247,0.2)]"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary text-2xl shadow-[0_0_15px_rgba(168,85,247,0.15)] group-hover:scale-110 group-hover:border-primary/40 transition-all duration-300">
+                    <i className={cert.icon}></i>
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-white mb-2 uppercase tracking-wide group-hover:text-primary transition-colors">
+                    {cert.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm font-medium mb-4">
+                    {cert.desc}
+                  </p>
+                </div>
+                <span className="text-[0.65rem] font-display font-bold tracking-widest text-primary/60 group-hover:text-primary transition-colors uppercase flex items-center gap-1.5 mt-2">
+                  <i className="fas fa-search-plus text-xs"></i> CLICK TO VIEW CERTIFICATE
+                </span>
+              </Tilt>
+            </div>
           </ScrollReveal>
         ))}
       </div>
