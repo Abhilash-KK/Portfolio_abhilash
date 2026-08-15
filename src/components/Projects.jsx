@@ -40,19 +40,20 @@ export default function Projects() {
       bgGradient: 'from-pink-600/30 to-blue-600/30'
     },
     {
-      id: 'mr-sevaka',
-      title: 'MR. SEVAKA',
-      displayTitle: 'Mr. Sevaka (Frontend Developer Intern Project)',
-      meta: 'React.js & Tailwind CSS | Geek Wick TechMedia',
-      desc: 'Developed responsive UI components using React.js and Tailwind CSS during internship at Geek Wick TechMedia Services Pvt Ltd, successfully converting Figma designs into functional layouts.',
+      id: 'emergency-contact-app',
+      title: 'EMERGENCY CONTACT APP',
+      displayTitle: 'Emergency Contact & Real-Time Alert System',
+      meta: 'Full-Stack Web App | React, Node.js & Web APIs',
+      desc: 'Built a responsive personal safety and emergency contact application designed for quick SOS alerting, contact group management, and real-time location sharing during urgent situations.',
       highlights: [
-        'Converted Figma designs into clean, responsive web and mobile user interfaces using React.js and Tailwind CSS.',
-        'Integrated REST APIs using Axios and managed application state & client-side routing.',
-        'Practiced Agile team collaboration with version control on Git and GitHub.'
+        'Designed an intuitive, high-priority UI with one-tap SOS emergency trigger for quick user action.',
+        'Integrated Geolocation API for real-time location tracking and instant alert messaging dispatch.',
+        'Implemented secure user authentication and encrypted emergency contact group storage.',
+        'Engineered mobile-first responsive interfaces optimized for low latency and high accessibility.'
       ],
-      tags: ['React.js', 'JavaScript', 'Tailwind CSS', 'Axios', 'Figma', 'Git'],
-      image: `${import.meta.env.BASE_URL}proj_mr_sevaka.png`,
-      bgGradient: 'from-purple-600/30 to-pink-600/30'
+      tags: ['React.js', 'JavaScript', 'Node.js', 'Express', 'Tailwind CSS', 'Firebase', 'Geolocation API'],
+      image: `${import.meta.env.BASE_URL}proj_emergency_contact.png`,
+      bgGradient: 'from-red-600/30 to-purple-600/30'
     }
   ];
 
