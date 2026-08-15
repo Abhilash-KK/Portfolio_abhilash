@@ -54,6 +54,23 @@ export default function Projects() {
       tags: ['React.js', 'JavaScript', 'Node.js', 'Express', 'Tailwind CSS', 'Firebase', 'Geolocation API'],
       image: `${import.meta.env.BASE_URL}proj_emergency_contact.png`,
       bgGradient: 'from-red-600/30 to-purple-600/30'
+    },
+    {
+      id: 'developer-portfolio',
+      title: 'DEVELOPER PORTFOLIO',
+      displayTitle: 'Interactive Developer Portfolio & Showcase Web App',
+      meta: 'Modern Frontend Web App | React 19 & Tailwind CSS',
+      desc: 'Designed and engineered an interactive, high-performance developer portfolio showcasing professional experience, projects, interactive particle physics canvas, and live GitHub API integration.',
+      highlights: [
+        'Built dynamic 3D tilt interaction cards, interactive particle network background canvas, and custom audio SFX engines.',
+        'Integrated live GitHub API feed for real-time commit streaming and repository statistics.',
+        'Engineered interactive skill sandbox widgets and fast document preview modals with download tracking.',
+        'Optimized for responsive layout performance across desktop, tablet, and mobile browsers.'
+      ],
+      tags: ['React 19', 'JavaScript (ES6+)', 'Tailwind CSS', 'Vite', 'Canvas API', 'GitHub API', 'Web Audio API'],
+      demoUrl: 'https://abhilash-kk.github.io/Portfolio_abhilash/',
+      image: `${import.meta.env.BASE_URL}proj_portfolio.png`,
+      bgGradient: 'from-purple-600/30 to-blue-600/30'
     }
   ];
 
@@ -67,8 +84,8 @@ export default function Projects() {
         <div className="h-[3px] w-48 bg-gradient-to-r from-green-400 via-yellow-400 to-purple-600 mt-3 rounded-full"></div>
       </ScrollReveal>
 
-      {/* Grid of Projects (3-column layout) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Grid of Projects (2x2 layout on desktop) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projectsData.map((project) => (
           <ScrollReveal key={project.id} className="group cursor-pointer" onClick={() => setActiveProject(project)}>
             {/* 3D Tilt Card Container */}
