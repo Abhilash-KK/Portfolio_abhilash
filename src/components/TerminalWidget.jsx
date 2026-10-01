@@ -24,17 +24,19 @@ export default function TerminalWidget() {
     skills: [
       'Technical Core Competencies:',
       '  Python          [====================] 90%',
+      '  SQL             [==================  ] 85%',
+      '  C Programming   [================    ] 80%',
       '  HTML & CSS      [==================  ] 85%',
-      '  SQL             [================    ] 80%',
-      '  C Programming   [===============     ] 75%',
-      'Soft Skills:',
-      '  - Problem Solving, Fast Learning, Agile Workflows'
+      'Behavioral Skills:',
+      '  - Data-Driven Decision Making, Communication, Fast Learning, Problem Solving',
+      'Languages:',
+      '  - English, Malayalam, Hindi'
     ],
     projects: [
       'Key Developer Accomplishments:',
       '  1. Traffic Sign Detection and Recognition Using YOLO & Deep Learning',
       '  2. Student & Employee Leave Management Hub (Django, MySQL, Bootstrap)',
-      '  3. Frontend Developer Intern Projects (React.js, Tailwind CSS, Axios)'
+      '  3. Web & Frontend Developer Internships (M-Squared, Geek Wick)'
     ],
     contact: [
       'Primary Communication Channels:',

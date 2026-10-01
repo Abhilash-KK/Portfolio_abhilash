@@ -20,7 +20,7 @@ export default function About() {
     {
       title: 'Career Objective',
       icon: 'fas fa-bullseye',
-      desc: 'Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization to apply my skills, learn new technologies, and contribute to success.'
+      desc: 'Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization. I aim to apply my knowledge and skills, learn new technologies, and gain practical experience while contributing to success.'
     },
     {
       title: 'Interests',
@@ -48,7 +48,7 @@ export default function About() {
 
         {/* Introduction text */}
         <p className="font-sans text-slate-300 text-base md:text-lg leading-[1.8] max-w-[850px] mb-16 text-center">
-          Hi, I'm Abhilash K K. Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization. I aim to apply my knowledge and skills, learn new technologies, and gain practical experience while contributing to the success of the organization.
+          Hi, I'm Abhilash K K. Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization. I aim to apply my knowledge and skills, learn new technologies, and gain practical experience while contributing to the success of the organization. I am a quick learner, a good team player, and committed to continuous learning and professional growth.
         </p>
 
         {/* Structured Info Grid */}
