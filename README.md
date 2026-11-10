@@ -24,6 +24,7 @@ A dark-themed, interactive developer portfolio and resume web application built 
   - Live GitHub activity feed (`GithubStream`) powered by the GitHub REST API with a 20-week SVG contribution graph and automatic fallback data if rate-limited.
 - **Featured Projects Showcase**
   - Interactive 3D tilt cards with glare effects (`Tilt`) and detail modals showcasing key accomplishments, tech stacks, live app links, and GitHub repository links:
+    - **IoT Fire Detection System** — ESP32, FastAPI, PostgreSQL & React Real-Time Telemetry Dashboard
     - **FreeMatch AI** — AI-Assisted Freelance Marketplace Platform
     - **Traffic Sign Detection and Recognition** — YOLO & Deep Learning System
     - **Student & Employee Leave Management Hub** — Django & MySQL Web Portal
@@ -99,6 +100,7 @@ resume-website/
 ├── public/                        # Static assets copied directly to dist/
 │   ├── certificates/              # Certificate PNG previews and official PDFs
 │   ├── hero_neural_net.png        # Hero section neural network graphic
+│   ├── proj_fire_detection.jpg    # IoT Fire Detection System project preview visual
 │   ├── proj_freematch.jpg         # FreeMatch AI project preview visual
 │   ├── proj_tsrd.png              # Traffic Sign Detection project preview visual
 │   ├── proj_leave_hub.png         # Leave Management Hub project preview visual
@@ -142,13 +144,17 @@ resume-website/
 
 The repository includes the following project showcase visuals in `public/` used across the portfolio cards:
 
-| FreeMatch AI | Traffic Sign Detection |
+| IoT Fire Detection System | FreeMatch AI |
 | :---: | :---: |
-| ![FreeMatch AI Preview](public/proj_freematch.jpg) | ![Traffic Sign Detection Preview](public/proj_tsrd.png) |
+| ![IoT Fire Detection System Preview](public/proj_fire_detection.jpg) | ![FreeMatch AI Preview](public/proj_freematch.jpg) |
 
-| Leave Management Hub | Emergency Contact App |
+| Traffic Sign Detection | Leave Management Hub |
 | :---: | :---: |
-| ![Leave Management Hub Preview](public/proj_leave_hub.png) | ![Emergency Contact App Preview](public/proj_emergency_contact.png) |
+| ![Traffic Sign Detection Preview](public/proj_tsrd.png) | ![Leave Management Hub Preview](public/proj_leave_hub.png) |
+
+| Emergency Contact App | Developer Portfolio |
+| :---: | :---: |
+| ![Emergency Contact App Preview](public/proj_emergency_contact.png) | ![Developer Portfolio Preview](public/proj_portfolio.png) |
 
 ---
 

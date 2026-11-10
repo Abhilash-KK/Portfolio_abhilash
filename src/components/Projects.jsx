@@ -7,6 +7,24 @@ export default function Projects() {
 
   const projectsData = [
     {
+      id: 'iot-fire-detection',
+      title: 'FIRE DETECTION SYSTEM',
+      displayTitle: 'IoT Fire Detection System',
+      meta: 'IoT & Real-Time Dashboard | ESP32, FastAPI & React',
+      desc: 'An end-to-end IoT Fire Detection System connecting an ESP32 DevKit V1 and an IR optical flame sensor to a containerized FastAPI & PostgreSQL backend, displaying live flame status, stepped telemetry waveforms, and historical logs on a real-time React dashboard.',
+      highlights: [
+        'Engineered fail-safe ESP32 C++ firmware polling an IR optical flame sensor (GPIO27) every 100ms with immediate local Red/Green LED alerts, automatic Wi-Fi reconnection, and non-blocking HTTP/HTTPS telemetry.',
+        'Built a containerized Python FastAPI REST backend with SQLAlchemy ORM, Alembic migrations, PostgreSQL persistence, and X-API-Key authentication for telemetry ingestion and log management.',
+        'Developed a React 19 + Tailwind CSS v4 real-time dashboard featuring a 4-state status banner, 3-second live polling, Recharts stepped waveform charts, node health/RSSI panels, and filterable telemetry logs.',
+        'Added automated Pytest API/database test suites, a virtual ESP32 device simulator CLI, and multi-service Docker + Render deployment configuration.'
+      ],
+      tags: ['ESP32', 'Arduino C++', 'Python', 'FastAPI', 'PostgreSQL', 'React 19', 'Tailwind CSS', 'Recharts', 'Docker'],
+      demoUrl: 'https://iot-fire-detection-dashboard.onrender.com',
+      repoUrl: 'https://github.com/Abhilash-KK/IOT_Fire_Detection_System',
+      image: `${import.meta.env.BASE_URL}proj_fire_detection.jpg`,
+      bgGradient: 'from-red-600/30 to-cyan-600/30'
+    },
+    {
       id: 'freematch-ai',
       title: 'FREEMATCH AI',
       displayTitle: 'FreeMatch AI — AI-Assisted Freelance Marketplace Platform',

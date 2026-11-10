@@ -23,19 +23,20 @@ export default function TerminalWidget() {
     ],
     skills: [
       'Technical Skills:',
-      '  Languages:    Python, C, SQL, JavaScript, HTML, CSS',
-      '  Frameworks:   React.js, Tailwind CSS, Django, Bootstrap',
-      '  DB & Tools:   MySQL, PostgreSQL, Git, GitHub, Figma, Axios',
-      '  Competencies: REST APIs, Responsive UI, Data-Driven Decision Making, Problem Solving',
+      '  Languages:    Python, C / C++, SQL, JavaScript, HTML, CSS',
+      '  Frameworks:   React.js, Tailwind CSS, Django, FastAPI, Bootstrap',
+      '  DB & Tools:   MySQL, PostgreSQL, Docker, Git, GitHub, Figma, Axios',
+      '  IoT & Core:   ESP32, REST APIs, Responsive UI, Problem Solving',
       'Spoken Languages:',
       '  - English, Malayalam, Hindi'
     ],
     projects: [
       'Key Projects:',
-      '  1. FreeMatch AI (React.js, Tailwind, Redux, Django DRF, Celery, Redis, PostgreSQL)',
-      '  2. Traffic Sign Detection and Recognition (Python, YOLOv5/v8, OpenCV, TensorFlow, Keras)',
-      '  3. Student & Employee Leave Management Hub (Python, Django, MySQL, Bootstrap, Chart.js)',
-      '  4. Personal Portfolio Website (React.js, HTML, CSS, JavaScript, Tailwind CSS)'
+      '  1. IoT Fire Detection System (ESP32, IR Flame Sensor, FastAPI, PostgreSQL, React, Docker)',
+      '  2. FreeMatch AI (React.js, Tailwind, Redux, Django DRF, Celery, Redis, PostgreSQL)',
+      '  3. Traffic Sign Detection and Recognition (Python, YOLOv5/v8, OpenCV, TensorFlow, Keras)',
+      '  4. Student & Employee Leave Management Hub (Python, Django, MySQL, Bootstrap, Chart.js)',
+      '  5. Personal Portfolio Website (React.js, HTML, CSS, JavaScript, Tailwind CSS)'
     ],
     contact: [
       'Primary Communication Channels:',

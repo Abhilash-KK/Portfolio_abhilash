@@ -16,8 +16,8 @@ export default function SkillsSandbox() {
     let height = (canvas.height = 300);
 
     const skills = [
-      'Python', 'React.js', 'Django', 'Tailwind', 'Redux', 'MySQL',
-      'PostgreSQL', 'JS', 'Git', 'REST API', 'YOLOv8', 'Bootstrap', 'Figma'
+      'Python', 'React.js', 'FastAPI', 'Django', 'ESP32', 'Tailwind',
+      'PostgreSQL', 'MySQL', 'Redux', 'JS', 'Git', 'Docker', 'YOLOv8'
     ];
 
     const bubbles = [];

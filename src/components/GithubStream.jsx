@@ -27,19 +27,19 @@ export default function GithubStream() {
   const getMockEvents = () => [
     {
       id: 'mock-1',
-      desc: 'Pushed 1 commit to Free-Match-AI-Project ("Full-stack marketplace & Sprint Kanban")',
+      desc: 'Pushed 1 commit to IOT_Fire_Detection_System ("ESP32 firmware, FastAPI backend & React dashboard")',
       icon: 'fas fa-code-branch',
       color: 'text-green-400',
       time: '12m ago',
-      url: 'https://github.com/Abhilash-KK/Free-Match-AI-Project'
+      url: 'https://github.com/Abhilash-KK/IOT_Fire_Detection_System'
     },
     {
       id: 'mock-2',
-      desc: 'Updated Portfolio_abhilash ("Add FreeMatch AI & updated resume")',
-      icon: 'fas fa-plus-circle',
+      desc: 'Pushed 1 commit to Free-Match-AI-Project ("Full-stack marketplace & Sprint Kanban")',
+      icon: 'fas fa-code-branch',
       color: 'text-cyan-400',
       time: '3h ago',
-      url: 'https://github.com/Abhilash-KK/Portfolio_abhilash'
+      url: 'https://github.com/Abhilash-KK/Free-Match-AI-Project'
     },
     {
       id: 'mock-3',

@@ -7,12 +7,12 @@ export default function Skills() {
     { name: 'Python', level: 90 },
     { name: 'React.js & Tailwind CSS', level: 85 },
     { name: 'JavaScript (ES6+)', level: 85 },
-    { name: 'Django & REST APIs', level: 85 },
-    { name: 'SQL & MySQL', level: 85 },
+    { name: 'Django, FastAPI & REST APIs', level: 85 },
+    { name: 'SQL, MySQL & PostgreSQL', level: 85 },
     { name: 'HTML, CSS & Bootstrap', level: 85 },
-    { name: 'C Programming', level: 80 }
+    { name: 'C / C++ & ESP32 IoT', level: 80 }
   ];
-  const databasesAndTools = ['MySQL', 'PostgreSQL', 'Git', 'GitHub', 'Figma', 'Axios'];
+  const databasesAndTools = ['MySQL', 'PostgreSQL', 'Docker', 'Git', 'GitHub', 'Figma', 'Axios'];
   const coreCompetencies = [
     'REST APIs',
     'Responsive UI',
