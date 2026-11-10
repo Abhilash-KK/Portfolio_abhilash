@@ -22,21 +22,20 @@ export default function TerminalWidget() {
       '  clear    - Clear console display screen history'
     ],
     skills: [
-      'Technical Core Competencies:',
-      '  Python          [====================] 90%',
-      '  SQL             [==================  ] 85%',
-      '  C Programming   [================    ] 80%',
-      '  HTML & CSS      [==================  ] 85%',
-      'Behavioral Skills:',
-      '  - Data-Driven Decision Making, Communication, Fast Learning, Problem Solving',
-      'Languages:',
+      'Technical Skills:',
+      '  Languages:    Python, C, SQL, JavaScript, HTML, CSS',
+      '  Frameworks:   React.js, Tailwind CSS, Django, Bootstrap',
+      '  DB & Tools:   MySQL, PostgreSQL, Git, GitHub, Figma, Axios',
+      '  Competencies: REST APIs, Responsive UI, Data-Driven Decision Making, Problem Solving',
+      'Spoken Languages:',
       '  - English, Malayalam, Hindi'
     ],
     projects: [
-      'Key Developer Accomplishments:',
-      '  1. Traffic Sign Detection and Recognition Using YOLO & Deep Learning',
-      '  2. Student & Employee Leave Management Hub (Django, MySQL, Bootstrap)',
-      '  3. Web & Frontend Developer Internships (M-Squared, Geek Wick)'
+      'Key Projects:',
+      '  1. FreeMatch AI (React.js, Tailwind, Redux, Django DRF, Celery, Redis, PostgreSQL)',
+      '  2. Traffic Sign Detection and Recognition (Python, YOLOv5/v8, OpenCV, TensorFlow, Keras)',
+      '  3. Student & Employee Leave Management Hub (Python, Django, MySQL, Bootstrap, Chart.js)',
+      '  4. Personal Portfolio Website (React.js, HTML, CSS, JavaScript, Tailwind CSS)'
     ],
     contact: [
       'Primary Communication Channels:',

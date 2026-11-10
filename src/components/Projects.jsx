@@ -7,6 +7,24 @@ export default function Projects() {
 
   const projectsData = [
     {
+      id: 'freematch-ai',
+      title: 'FREEMATCH AI',
+      displayTitle: 'FreeMatch AI — AI-Assisted Freelance Marketplace Platform',
+      meta: 'Full-Stack Platform | React.js, Django REST & PostgreSQL',
+      desc: 'Designed an AI-assisted matching platform concept to compare project requirements with freelancer skills, generate semantic matches, and rank recommendations for client-freelancer connections, paired with a full-stack multi-role marketplace implementation.',
+      highlights: [
+        'Architected multi-role dashboards (Client, Freelancer, Admin) with project posting, proposal bidding, hiring workflows, and contract lifecycle management.',
+        'Built an interactive Sprint Kanban Board (To Do, In Progress, Under Review, Done) synced with contract milestones and automated progress tracking.',
+        'Developed Django REST Framework APIs backed by PostgreSQL with ReportLab PDF invoice generation, Cloudinary document handling, real-time notifications, direct messaging, and global search.',
+        'Verified end-to-end reliability across Selenium UI test suites and Postman/Newman API collections, deployed on Vercel and Render.'
+      ],
+      tags: ['React.js', 'Tailwind CSS', 'Redux', 'Python', 'Django', 'Django REST Framework', 'Celery', 'Redis', 'PostgreSQL', 'Git'],
+      demoUrl: 'https://free-match-ai-project.vercel.app',
+      repoUrl: 'https://github.com/Abhilash-KK/Free-Match-AI-Project',
+      image: `${import.meta.env.BASE_URL}proj_freematch.jpg`,
+      bgGradient: 'from-purple-600/30 to-cyan-600/30'
+    },
+    {
       id: 'tsrd',
       title: 'TRAFFIC SIGN DETECTION',
       displayTitle: 'Traffic Sign Detection and Recognition Using YOLO & Deep Learning',
@@ -84,10 +102,10 @@ export default function Projects() {
         <div className="h-[3px] w-48 bg-gradient-to-r from-green-400 via-yellow-400 to-purple-600 mt-3 rounded-full"></div>
       </ScrollReveal>
 
-      {/* Grid of Projects (2x2 layout on desktop) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Grid of Projects (2-column centered layout on desktop) */}
+      <div className="flex flex-wrap justify-center gap-8">
         {projectsData.map((project) => (
-          <ScrollReveal key={project.id} className="group cursor-pointer" onClick={() => setActiveProject(project)}>
+          <ScrollReveal key={project.id} className="w-full md:w-[calc(50%-1rem)] group cursor-pointer" onClick={() => setActiveProject(project)}>
             {/* 3D Tilt Card Container */}
             <Tilt className="rounded-xl overflow-hidden mb-4 shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
               {/* Card Thumbnail Container */}
@@ -172,17 +190,29 @@ export default function Projects() {
                 ))}
               </div>
 
-              {/* Demo URL Button */}
-              {activeProject.demoUrl && (
-                <div className="border-t border-border-dark/60 pt-6">
-                  <a
-                    href={activeProject.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-display text-xs font-bold tracking-widest bg-primary hover:bg-primary-hover text-white px-6 py-3 uppercase transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
-                  >
-                    <i className="fas fa-external-link-alt"></i> VISIT LIVE APP
-                  </a>
+              {/* Action Links (Live App / GitHub Repo) */}
+              {(activeProject.demoUrl || activeProject.repoUrl) && (
+                <div className="border-t border-border-dark/60 pt-6 flex flex-wrap gap-3">
+                  {activeProject.demoUrl && (
+                    <a
+                      href={activeProject.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-display text-xs font-bold tracking-widest bg-primary hover:bg-primary-hover text-white px-6 py-3 uppercase transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.3)]"
+                    >
+                      <i className="fas fa-external-link-alt"></i> VISIT LIVE APP
+                    </a>
+                  )}
+                  {activeProject.repoUrl && (
+                    <a
+                      href={activeProject.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-display text-xs font-bold tracking-widest border border-white/20 hover:border-primary/50 text-white bg-transparent hover:bg-white/5 px-6 py-3 uppercase transition-all duration-300"
+                    >
+                      <i className="fab fa-github"></i> VIEW GITHUB REPO
+                    </a>
+                  )}
                 </div>
               )}
             </div>

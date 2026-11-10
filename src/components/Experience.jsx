@@ -12,7 +12,7 @@ export default function Experience() {
     {
       id: 'm-squared',
       title: 'Web Development Intern',
-      company: 'M-Squared Software & Services (P)Ltd',
+      company: 'M-Squared Software & Services (P) Ltd',
       period: 'June 15, 2026 – June 27, 2026 | Thiruvananthapuram, Kerala, India',
       badge: 'Certificate Received',
       highlights: [

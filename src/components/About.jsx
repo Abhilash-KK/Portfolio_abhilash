@@ -5,10 +5,10 @@ import GithubStream from './GithubStream';
 
 export default function About() {
   const pillars = [
+    'FULL-STACK WEB',
+    'DJANGO & REACT',
     'COMPUTER VISION',
-    'DEEP LEARNING',
-    'YOLO ARCHITECTURES',
-    'MODEL TRAINING'
+    'DEEP LEARNING'
   ];
 
   const infoBlocks = [
@@ -18,19 +18,19 @@ export default function About() {
       desc: 'Currently pursuing MCA at Amal Jyothi College of Engineering (GPA: 9.01/10). Completed BCA at MIT Mysore (GPA: 8.65/10).'
     },
     {
-      title: 'Career Objective',
+      title: 'Summary',
       icon: 'fas fa-bullseye',
-      desc: 'Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization. I aim to apply my knowledge and skills, learn new technologies, and gain practical experience while contributing to success.'
+      desc: 'MCA student with hands-on experience in frontend and web development, building responsive interfaces, integrating REST APIs, and developing database-driven web applications.'
     },
     {
       title: 'Interests',
       icon: 'fas fa-brain',
-      desc: 'Deeply interested in Artificial Intelligence, Computer Vision, YOLO architectures, and building responsive, secure Web Applications.'
+      desc: 'Deeply interested in AI-powered applications, Computer Vision (YOLO), and practical full-stack software development.'
     },
     {
       title: 'Key Strengths',
       icon: 'fas fa-bolt',
-      desc: 'Quick learner, good team player, analytical thinker, fast learner, and committed to continuous learning and professional growth.'
+      desc: 'Adaptable team player focused on writing clear, maintainable code, REST API integration, data-driven decision making, and continuous learning.'
     }
   ];
 
@@ -48,7 +48,7 @@ export default function About() {
 
         {/* Introduction text */}
         <p className="font-sans text-slate-300 text-base md:text-lg leading-[1.8] max-w-[850px] mb-16 text-center">
-          Hi, I'm Abhilash K K. Motivated and enthusiastic graduate seeking an opportunity to start my career in a growth-oriented organization. I aim to apply my knowledge and skills, learn new technologies, and gain practical experience while contributing to the success of the organization. I am a quick learner, a good team player, and committed to continuous learning and professional growth.
+          Hi, I'm Abhilash K K — an MCA student with hands-on experience in frontend and web development, including building responsive interfaces, integrating REST APIs, and developing database-driven web applications. Skilled in Python, React.js, JavaScript, Django, and MySQL, with an interest in AI-powered applications and practical software development.
         </p>
 
         {/* Structured Info Grid */}

@@ -27,15 +27,15 @@ export default function GithubStream() {
   const getMockEvents = () => [
     {
       id: 'mock-1',
-      desc: 'Pushed 1 commit to Portfolio_abhilash ("Add dynamic themes & timeline path")',
+      desc: 'Pushed 1 commit to Free-Match-AI-Project ("Full-stack marketplace & Sprint Kanban")',
       icon: 'fas fa-code-branch',
       color: 'text-green-400',
       time: '12m ago',
-      url: 'https://github.com/Abhilash-KK/Portfolio_abhilash'
+      url: 'https://github.com/Abhilash-KK/Free-Match-AI-Project'
     },
     {
       id: 'mock-2',
-      desc: 'Created repository Portfolio_abhilash',
+      desc: 'Updated Portfolio_abhilash ("Add FreeMatch AI & updated resume")',
       icon: 'fas fa-plus-circle',
       color: 'text-cyan-400',
       time: '3h ago',

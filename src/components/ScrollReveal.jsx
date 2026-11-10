@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function ScrollReveal({ children, className = '' }) {
+export default function ScrollReveal({ children, className = '', ...props }) {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const ref = useRef(null);
 
@@ -34,6 +34,7 @@ export default function ScrollReveal({ children, className = '' }) {
   return (
     <div
       ref={ref}
+      {...props}
       className={`${className} transition-all duration-1000 ease-out ${
         isIntersecting
           ? 'opacity-100 translate-y-0'
